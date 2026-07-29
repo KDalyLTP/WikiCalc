@@ -1,0 +1,11 @@
+# Output (regenerated on each run)
+data/output/*
+!data/output/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+.venv/
+venv/

@@ -1,0 +1,323 @@
+"""Standalone NOI / Cost / Income Yield calculator.
+
+Reads three manually-supplied CSVs (NOI query results, Cost query results, and
+Topside Entries adjustments) and writes four JSON reports. No database
+connection of any kind -- every input is a CSV file you provide.
+
+Required input columns:
+
+  data/input/noi.csv
+      Property Code, Post Month, Actual MTD
+
+  data/input/cost.csv
+      Property Code, Post Month, Actual Beginning Balance, Actual MTD
+
+  data/input/topside_entries.csv
+      property_code, currency, post_month, amount
+      (only "change points" needed -- see README. A property/month with no
+      entry at or before it defaults to 0.)
+
+Calculations produced (data/output/*.json):
+
+  monthly_noi.json
+      SUM(Actual MTD) from noi.csv, grouped by Property Code and Post Month.
+
+  monthly_cost.json
+      SUM(Actual Beginning Balance + Actual MTD) from cost.csv, grouped by
+      Property Code and Post Month, PLUS the Topside Entries adjustment for
+      that property/month (most recent entry at or before that month, carried
+      forward; 0 if none).
+
+  quarterly_noi.json
+      Annualized NOI per property per quarter:
+        ytdNOI        = SUM of Monthly NOI from Jan 1 of that year through the
+                        quarter's final month (inclusive)
+        numMonths     = the quarter's final calendar month number
+                        (Q1 -> 3, Q2 -> 6, Q3 -> 9, Q4 -> 12)
+        annualizedNOI = ytdNOI * (12 / numMonths)
+                        e.g. Q1 (3 months of YTD data) x 4, Q2 (6 months) x 2,
+                        Q3 (9 months) x 4/3, Q4 (12 months) x 1
+
+  quarterly_income_yield.json
+      (annualizedNOI / cost) * 100, where cost = Monthly Cost as of the
+      quarter's final month; 0 if cost is 0. Same annualizedNOI as
+      quarterly_noi.json.
+"""
+
+import argparse
+import json
+import logging
+import sys
+from pathlib import Path
+
+import pandas as pd
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    stream=sys.stdout,
+)
+logger = logging.getLogger(__name__)
+
+BASE_DIR = Path(__file__).resolve().parent
+DEFAULT_INPUT_DIR = BASE_DIR / "data" / "input"
+DEFAULT_OUTPUT_DIR = BASE_DIR / "data" / "output"
+
+NOI_REQUIRED_COLUMNS = ["Property Code", "Post Month", "Actual MTD"]
+COST_REQUIRED_COLUMNS = ["Property Code", "Post Month", "Actual Beginning Balance", "Actual MTD"]
+TOPSIDE_REQUIRED_COLUMNS = ["property_code", "currency", "post_month", "amount"]
+
+
+class InputValidationError(ValueError):
+    pass
+
+
+def _require_columns(df: pd.DataFrame, required: list, source: str) -> None:
+    missing = [col for col in required if col not in df.columns]
+    if missing:
+        raise InputValidationError(
+            f"{source} is missing required column(s): {missing}. "
+            f"Found columns: {list(df.columns)}"
+        )
+
+
+def _normalize_property_code(series: pd.Series) -> pd.Series:
+    return series.astype(str).str.strip()
+
+
+def load_noi_csv(path: Path) -> pd.DataFrame:
+    df = pd.read_csv(path)
+    _require_columns(df, NOI_REQUIRED_COLUMNS, path.name)
+    df["Property Code"] = _normalize_property_code(df["Property Code"])
+    df["Post Month"] = pd.to_datetime(df["Post Month"])
+    df["Actual MTD"] = pd.to_numeric(df["Actual MTD"])
+    return df
+
+
+def load_cost_csv(path: Path) -> pd.DataFrame:
+    df = pd.read_csv(path)
+    _require_columns(df, COST_REQUIRED_COLUMNS, path.name)
+    df["Property Code"] = _normalize_property_code(df["Property Code"])
+    df["Post Month"] = pd.to_datetime(df["Post Month"])
+    df["Actual Beginning Balance"] = pd.to_numeric(df["Actual Beginning Balance"])
+    df["Actual MTD"] = pd.to_numeric(df["Actual MTD"])
+    return df
+
+
+def load_topside_csv(path: Path) -> pd.DataFrame:
+    df = pd.read_csv(path, dtype={"property_code": str, "currency": str})
+    _require_columns(df, TOPSIDE_REQUIRED_COLUMNS, path.name)
+    df["property_code"] = _normalize_property_code(df["property_code"])
+    df["post_month"] = pd.to_datetime(df["post_month"])
+    df["amount"] = pd.to_numeric(df["amount"])
+    return df
+
+
+def compute_monthly_noi(noi_df: pd.DataFrame) -> pd.DataFrame:
+    result = (
+        noi_df.groupby(["Property Code", "Post Month"], as_index=False)["Actual MTD"]
+        .sum()
+        .rename(
+            columns={
+                "Property Code": "property_code",
+                "Post Month": "post_month",
+                "Actual MTD": "actual_mtd",
+            }
+        )
+    )
+    return result.sort_values(["property_code", "post_month"]).reset_index(drop=True)
+
+
+def _topside_adjustment_for_months(topside_df: pd.DataFrame, target_months) -> pd.DataFrame:
+    """For every (property_code, month) in target_months, find the topside amount
+    that applies -- the most recent explicit entry at or before that month,
+    carried forward, defaulting to 0 if the property has no entry at or before
+    that month."""
+    target_months = pd.DatetimeIndex(sorted(pd.to_datetime(pd.Series(target_months)).unique()))
+
+    frames = []
+    for property_code, group in topside_df.groupby("property_code"):
+        entries = group.sort_values("post_month").drop_duplicates("post_month", keep="last")
+        combined_index = pd.DatetimeIndex(sorted(set(entries["post_month"]) | set(target_months)))
+        carried = (
+            entries.set_index("post_month")["amount"]
+            .reindex(combined_index)
+            .ffill()
+            .fillna(0.0)
+            .reindex(target_months)
+        )
+        frames.append(
+            pd.DataFrame(
+                {
+                    "property_code": property_code,
+                    "post_month": target_months,
+                    "topside_amount": carried.values,
+                }
+            )
+        )
+    if not frames:
+        return pd.DataFrame(columns=["property_code", "post_month", "topside_amount"])
+    return pd.concat(frames, ignore_index=True)
+
+
+def compute_monthly_cost(cost_df: pd.DataFrame, topside_df: pd.DataFrame) -> pd.DataFrame:
+    df = cost_df.copy()
+    df["_base"] = df["Actual Beginning Balance"].fillna(0) + df["Actual MTD"].fillna(0)
+
+    base_cost = (
+        df.groupby(["Property Code", "Post Month"], as_index=False)["_base"]
+        .sum()
+        .rename(columns={"Property Code": "property_code", "Post Month": "post_month", "_base": "base_cost"})
+    )
+
+    # Full grid: every property x every month that appears anywhere in the Cost
+    # data -- cells with no matching Cost rows are treated as 0, not omitted.
+    properties = sorted(df["Property Code"].unique())
+    months = sorted(df["Post Month"].unique())
+    grid = pd.MultiIndex.from_product([properties, months], names=["property_code", "post_month"]).to_frame(
+        index=False
+    )
+    grid = grid.merge(base_cost, on=["property_code", "post_month"], how="left")
+    grid["base_cost"] = grid["base_cost"].fillna(0.0)
+
+    topside_adjustment = _topside_adjustment_for_months(topside_df, months)
+    grid = grid.merge(topside_adjustment, on=["property_code", "post_month"], how="left")
+    grid["topside_amount"] = grid["topside_amount"].fillna(0.0)
+
+    grid["total_cost"] = grid["base_cost"] + grid["topside_amount"]
+    return grid.sort_values(["property_code", "post_month"]).reset_index(drop=True)
+
+
+def _quarter_label(post_month: pd.Timestamp) -> str:
+    quarter_num = (post_month.month - 1) // 3 + 1
+    return f"{post_month.year}-Q{quarter_num}"
+
+
+def _sorted_quarters(quarters) -> list:
+    return sorted(set(quarters), key=lambda q: (int(q[:4]), int(q[-1])))
+
+
+def _ytd_annualized_noi(monthly_noi: pd.DataFrame) -> pd.DataFrame:
+    """Per property per quarter: YTD NOI (Jan 1 of that year through the
+    quarter's final month) annualized by (12 / numMonths)."""
+    noi = monthly_noi.copy()
+    noi["quarter"] = noi["post_month"].apply(_quarter_label)
+
+    properties = sorted(noi["property_code"].unique())
+    quarters = _sorted_quarters(noi["quarter"].unique())
+
+    rows = []
+    for quarter in quarters:
+        year = int(quarter[:4])
+        quarter_num = int(quarter[-1])
+        end_month_num = quarter_num * 3
+        quarter_end_date = pd.Timestamp(year=year, month=end_month_num, day=1)
+        num_months = end_month_num
+
+        ytd_mask = (noi["post_month"] >= pd.Timestamp(year=year, month=1, day=1)) & (
+            noi["post_month"] <= quarter_end_date
+        )
+        ytd_noi_by_property = noi[ytd_mask].groupby("property_code")["actual_mtd"].sum()
+
+        for property_code in properties:
+            ytd_noi = ytd_noi_by_property.get(property_code, 0.0)
+            annualized_noi = ytd_noi * (12 / num_months)
+            rows.append(
+                {
+                    "property_code": property_code,
+                    "quarter": quarter,
+                    "quarter_end_month": quarter_end_date,
+                    "ytd_noi": ytd_noi,
+                    "num_months": num_months,
+                    "annualized_noi": annualized_noi,
+                }
+            )
+
+    result = pd.DataFrame(rows)
+    result["_year"] = result["quarter"].str[:4].astype(int)
+    result["_q"] = result["quarter"].str[-1].astype(int)
+    result = result.sort_values(["property_code", "_year", "_q"]).drop(columns=["_year", "_q"])
+    return result.reset_index(drop=True)
+
+
+def compute_quarterly_noi(monthly_noi: pd.DataFrame) -> pd.DataFrame:
+    annualized = _ytd_annualized_noi(monthly_noi)
+    return annualized[["property_code", "quarter", "ytd_noi", "num_months", "annualized_noi"]]
+
+
+def compute_quarterly_income_yield(monthly_noi: pd.DataFrame, monthly_cost: pd.DataFrame) -> pd.DataFrame:
+    annualized = _ytd_annualized_noi(monthly_noi)
+    cost_lookup = monthly_cost.set_index(["property_code", "post_month"])["total_cost"]
+
+    def _cost_for(row):
+        return cost_lookup.get((row["property_code"], row["quarter_end_month"]), 0.0)
+
+    annualized["cost"] = annualized.apply(_cost_for, axis=1)
+    annualized["yield_pct"] = annualized.apply(
+        lambda row: 0.0 if row["cost"] == 0 else (row["annualized_noi"] / row["cost"]) * 100, axis=1
+    )
+    return annualized[["property_code", "quarter", "annualized_noi", "cost", "yield_pct"]]
+
+
+def _write_json(df: pd.DataFrame, path: Path) -> None:
+    records = df.to_dict(orient="records")
+    for record in records:
+        for key, value in record.items():
+            if isinstance(value, pd.Timestamp):
+                record[key] = value.strftime("%Y-%m-%d")
+    with open(path, "w") as f:
+        json.dump(records, f, indent=2, default=str)
+
+
+def main(argv=None) -> int:
+    parser = argparse.ArgumentParser(description="Calculate Monthly NOI, Monthly Cost, Quarterly NOI, and Quarterly Income Yield from manually-supplied CSVs.")
+    parser.add_argument("--input-dir", default=str(DEFAULT_INPUT_DIR), help="Directory containing noi.csv, cost.csv, topside_entries.csv.")
+    parser.add_argument("--output-dir", default=str(DEFAULT_OUTPUT_DIR), help="Directory to write output JSON to.")
+    parser.add_argument("--noi-file", default="noi.csv")
+    parser.add_argument("--cost-file", default="cost.csv")
+    parser.add_argument("--topside-file", default="topside_entries.csv")
+    args = parser.parse_args(argv)
+
+    input_dir = Path(args.input_dir)
+    output_dir = Path(args.output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    try:
+        logger.info("Loading input CSVs from %s", input_dir)
+        noi_df = load_noi_csv(input_dir / args.noi_file)
+        cost_df = load_cost_csv(input_dir / args.cost_file)
+        topside_df = load_topside_csv(input_dir / args.topside_file)
+    except (InputValidationError, FileNotFoundError) as exc:
+        logger.error(str(exc))
+        return 1
+
+    logger.info("Computing Monthly NOI...")
+    monthly_noi = compute_monthly_noi(noi_df)
+    _write_json(monthly_noi, output_dir / "monthly_noi.json")
+    logger.info("Monthly NOI: %d properties, %d months", monthly_noi["property_code"].nunique(), monthly_noi["post_month"].nunique())
+
+    logger.info("Computing Monthly Cost (with topside adjustments)...")
+    monthly_cost = compute_monthly_cost(cost_df, topside_df)
+    _write_json(monthly_cost, output_dir / "monthly_cost.json")
+    logger.info("Monthly Cost: %d properties, %d months", monthly_cost["property_code"].nunique(), monthly_cost["post_month"].nunique())
+
+    logger.info("Computing Quarterly NOI (annualized)...")
+    quarterly_noi = compute_quarterly_noi(monthly_noi)
+    _write_json(quarterly_noi, output_dir / "quarterly_noi.json")
+    logger.info("Quarterly NOI: %d properties, %d quarters", quarterly_noi["property_code"].nunique(), quarterly_noi["quarter"].nunique())
+
+    logger.info("Computing Quarterly Income Yield...")
+    quarterly_income_yield = compute_quarterly_income_yield(monthly_noi, monthly_cost)
+    _write_json(quarterly_income_yield, output_dir / "quarterly_income_yield.json")
+    logger.info(
+        "Quarterly Income Yield: %d properties, %d quarters",
+        quarterly_income_yield["property_code"].nunique(),
+        quarterly_income_yield["quarter"].nunique(),
+    )
+
+    logger.info("All calculations complete. Output written to %s", output_dir)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
