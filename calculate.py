@@ -47,6 +47,12 @@ Calculations produced (data/output/*.json):
       (annualizedNOI / cost) * 100, where cost = Monthly Cost as of the
       quarter's final month; 0 if cost is 0. Same annualizedNOI as
       quarterly_noi.json.
+
+All dollar figures in the output JSON are rounded to whole numbers (no
+cents). Rounding is applied only when writing each file, never to the
+DataFrames used internally, so it can't compound into a later calculation
+(e.g. Monthly NOI feeding Quarterly NOI). yield_pct is a percentage rather
+than a dollar figure, so it keeps 2 decimal places instead.
 """
 
 import argparse
@@ -377,6 +383,20 @@ def compute_quarterly_income_yield(monthly_noi: pd.DataFrame, monthly_cost: pd.D
     return annualized[["property_code", "quarter", "annualized_noi", "cost", "yield_pct"]]
 
 
+def _round_for_output(df: pd.DataFrame, whole_dollar_columns=(), decimal_columns=None) -> pd.DataFrame:
+    """Round a copy of df for display -- whole_dollar_columns become integers
+    (no cents), decimal_columns are rounded to the given number of decimal
+    places. Does not mutate df, so upstream calculations that reuse the
+    unrounded DataFrame (e.g. Monthly NOI feeding Quarterly NOI) aren't
+    affected by this rounding."""
+    df = df.copy()
+    for col in whole_dollar_columns:
+        df[col] = df[col].round(0).astype("int64")
+    for col, decimals in (decimal_columns or {}).items():
+        df[col] = df[col].round(decimals)
+    return df
+
+
 def _write_json(df: pd.DataFrame, path: Path) -> None:
     records = df.to_dict(orient="records")
     for record in records:
@@ -411,22 +431,35 @@ def main(argv=None) -> int:
 
     logger.info("Computing Monthly NOI...")
     monthly_noi = compute_monthly_noi(noi_df)
-    _write_json(monthly_noi, output_dir / "monthly_noi.json")
+    _write_json(_round_for_output(monthly_noi, whole_dollar_columns=["actual_mtd"]), output_dir / "monthly_noi.json")
     logger.info("Monthly NOI: %d properties, %d months", monthly_noi["property_code"].nunique(), monthly_noi["post_month"].nunique())
 
     logger.info("Computing Monthly Cost (with topside adjustments)...")
     monthly_cost = compute_monthly_cost(cost_df, topside_df)
-    _write_json(monthly_cost, output_dir / "monthly_cost.json")
+    _write_json(
+        _round_for_output(monthly_cost, whole_dollar_columns=["base_cost", "topside_amount", "total_cost"]),
+        output_dir / "monthly_cost.json",
+    )
     logger.info("Monthly Cost: %d properties, %d months", monthly_cost["property_code"].nunique(), monthly_cost["post_month"].nunique())
 
     logger.info("Computing Quarterly NOI (annualized)...")
     quarterly_noi = compute_quarterly_noi(monthly_noi)
-    _write_json(quarterly_noi, output_dir / "quarterly_noi.json")
+    _write_json(
+        _round_for_output(quarterly_noi, whole_dollar_columns=["ytd_noi", "annualized_noi"]),
+        output_dir / "quarterly_noi.json",
+    )
     logger.info("Quarterly NOI: %d properties, %d quarters", quarterly_noi["property_code"].nunique(), quarterly_noi["quarter"].nunique())
 
     logger.info("Computing Quarterly Income Yield...")
     quarterly_income_yield = compute_quarterly_income_yield(monthly_noi, monthly_cost)
-    _write_json(quarterly_income_yield, output_dir / "quarterly_income_yield.json")
+    _write_json(
+        _round_for_output(
+            quarterly_income_yield,
+            whole_dollar_columns=["annualized_noi", "cost"],
+            decimal_columns={"yield_pct": 2},
+        ),
+        output_dir / "quarterly_income_yield.json",
+    )
     logger.info(
         "Quarterly Income Yield: %d properties, %d quarters",
         quarterly_income_yield["property_code"].nunique(),
