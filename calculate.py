@@ -13,9 +13,14 @@ Required input columns:
       Property Code, Post Month, Actual Beginning Balance, Actual MTD
 
   data/input/topside_entries.csv
-      property_code, currency, post_month, amount
-      (only "change points" needed -- see README. A property/month with no
-      entry at or before it defaults to 0.)
+      Either of two layouts is accepted:
+        - Wide export straight out of the workbook: property code in the first
+          column, a "Currency" column, and one column per month labeled like
+          "Jan-23"/"Feb-23" with accounting-formatted amounts (e.g. "$1,847,640",
+          "($16,630)"). Blank cells mean no entry that month.
+        - Tidy format: property_code, currency, post_month, amount (one row per
+          explicit "change point" -- see README).
+      A property/month with no entry at or before it defaults to a $0 adjustment.
 
 Calculations produced (data/output/*.json):
 
@@ -52,6 +57,8 @@ from pathlib import Path
 
 import pandas as pd
 
+MONTH_HEADER_FORMAT = "%b-%y"  # e.g. "Jan-23"
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
@@ -85,9 +92,21 @@ def _normalize_property_code(series: pd.Series) -> pd.Series:
     return series.astype(str).str.strip()
 
 
+def _drop_blank_rows(df: pd.DataFrame, key_columns: list) -> pd.DataFrame:
+    """Query exports sometimes have trailing blank rows (or a stray note row)
+    after the real data -- drop any row missing a value in a key column."""
+    return df.dropna(subset=key_columns).reset_index(drop=True)
+
+
 def load_noi_csv(path: Path) -> pd.DataFrame:
-    df = pd.read_csv(path)
+    # Property Code must be read as text: if every value happens to be
+    # numeric-looking (no alpha-suffixed codes like "2101op" in this export),
+    # pandas would otherwise infer int/float64 -- and blank trailing rows push
+    # it to float64, turning "1102" into "1102.0" and silently breaking every
+    # join against it.
+    df = pd.read_csv(path, dtype={"Property Code": str})
     _require_columns(df, NOI_REQUIRED_COLUMNS, path.name)
+    df = _drop_blank_rows(df, NOI_REQUIRED_COLUMNS)
     df["Property Code"] = _normalize_property_code(df["Property Code"])
     df["Post Month"] = pd.to_datetime(df["Post Month"])
     df["Actual MTD"] = pd.to_numeric(df["Actual MTD"])
@@ -95,8 +114,9 @@ def load_noi_csv(path: Path) -> pd.DataFrame:
 
 
 def load_cost_csv(path: Path) -> pd.DataFrame:
-    df = pd.read_csv(path)
+    df = pd.read_csv(path, dtype={"Property Code": str})
     _require_columns(df, COST_REQUIRED_COLUMNS, path.name)
+    df = _drop_blank_rows(df, COST_REQUIRED_COLUMNS)
     df["Property Code"] = _normalize_property_code(df["Property Code"])
     df["Post Month"] = pd.to_datetime(df["Post Month"])
     df["Actual Beginning Balance"] = pd.to_numeric(df["Actual Beginning Balance"])
@@ -104,12 +124,110 @@ def load_cost_csv(path: Path) -> pd.DataFrame:
     return df
 
 
-def load_topside_csv(path: Path) -> pd.DataFrame:
+def _parse_accounting_number(value) -> float:
+    """Parse an accounting-formatted cell into a float, or None if blank.
+
+    Handles '$1,847,640' (positive), '($16,630)' (negative, parens), and
+    plain numbers. Returns None for blank/NaN cells."""
+    if value is None:
+        return None
+    if isinstance(value, float) and pd.isna(value):
+        return None
+    text = str(value).strip()
+    if text == "" or text.lower() == "nan":
+        return None
+    negative = text.startswith("(") and text.endswith(")")
+    if negative:
+        text = text[1:-1]
+    text = text.replace("$", "").replace(",", "").strip()
+    if text == "":
+        return None
+    number = float(text)
+    return -number if negative else number
+
+
+def _parse_month_header(value) -> pd.Timestamp:
+    """Parse a month column header like 'Jan-23' into a Timestamp for the
+    first of that month, or None if it doesn't look like one (including a
+    blank cell, which pandas parses to NaT rather than raising)."""
+    text = str(value).strip()
+    if text == "":
+        return None
+    try:
+        parsed = pd.to_datetime(text, format=MONTH_HEADER_FORMAT)
+    except (ValueError, TypeError):
+        return None
+    if pd.isna(parsed):
+        return None
+    return parsed.replace(day=1)
+
+
+def _load_topside_wide_csv(path: Path) -> pd.DataFrame:
+    """Parse the wide export straight out of the workbook: property code in
+    column 0, a 'Currency' column, and one accounting-formatted column per
+    month (e.g. 'Jan-23'). Blank cells mean no entry for that month."""
+    raw = pd.read_csv(path, header=None, dtype=str, keep_default_na=False)
+    header_row = raw.iloc[0]
+
+    currency_col = None
+    month_cols = {}
+    for col_idx, value in header_row.items():
+        if str(value).strip().lower() == "currency":
+            currency_col = col_idx
+            continue
+        month = _parse_month_header(value)
+        if month is not None:
+            month_cols[col_idx] = month
+
+    if currency_col is None or not month_cols:
+        raise InputValidationError(
+            f"{path.name} does not look like a Topside Entries export -- expected a "
+            "'Currency' column and month columns formatted like 'Jan-23'."
+        )
+
+    records = []
+    for _, row in raw.iloc[1:].iterrows():
+        property_code = str(row[0]).strip()
+        if not property_code:
+            continue
+        currency = str(row[currency_col]).strip()
+        for col_idx, month in month_cols.items():
+            amount = _parse_accounting_number(row[col_idx])
+            if amount is None:
+                continue
+            records.append(
+                {
+                    "property_code": property_code,
+                    "currency": currency,
+                    "post_month": month,
+                    "amount": amount,
+                }
+            )
+    return pd.DataFrame(records, columns=TOPSIDE_REQUIRED_COLUMNS)
+
+
+def _load_topside_tidy_csv(path: Path) -> pd.DataFrame:
     df = pd.read_csv(path, dtype={"property_code": str, "currency": str})
     _require_columns(df, TOPSIDE_REQUIRED_COLUMNS, path.name)
+    df = _drop_blank_rows(df, TOPSIDE_REQUIRED_COLUMNS)
     df["property_code"] = _normalize_property_code(df["property_code"])
     df["post_month"] = pd.to_datetime(df["post_month"])
     df["amount"] = pd.to_numeric(df["amount"])
+    return df
+
+
+def load_topside_csv(path: Path) -> pd.DataFrame:
+    """Accepts either the wide workbook export or the tidy change-point format
+    -- detected from the file's own first-row header."""
+    with open(path, newline="") as f:
+        first_line = f.readline()
+    header_cells = [cell.strip().strip('"') for cell in first_line.split(",")]
+    if set(TOPSIDE_REQUIRED_COLUMNS).issubset(header_cells):
+        df = _load_topside_tidy_csv(path)
+    else:
+        df = _load_topside_wide_csv(path)
+
+    df["property_code"] = _normalize_property_code(df["property_code"])
     return df
 
 
