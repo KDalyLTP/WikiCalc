@@ -305,8 +305,33 @@ def compute_monthly_cost(cost_df: pd.DataFrame, topside_df: pd.DataFrame) -> pd.
     grid["base_cost"] = grid["base_cost"].fillna(0.0)
 
     topside_adjustment = _topside_adjustment_for_months(topside_df, months)
+    for code in ["1601", "1702", "1803"]:
+    logger.info(
+        "\nCalculated topside adjustments for %s:\n%s",
+        code,
+        topside_adjustment[
+            topside_adjustment["property_code"] == code
+        ].tail(24)
+    )
+  
     grid = grid.merge(topside_adjustment, on=["property_code", "post_month"], how="left")
     grid["topside_amount"] = grid["topside_amount"].fillna(0.0)
+
+    for code in ["1601", "1702", "1803"]:
+    logger.info(
+        "\nMerged results for %s:\n%s",
+        code,
+        grid[
+            grid["property_code"] == code
+        ][[
+            "property_code",
+            "post_month",
+            "base_cost",
+            "topside_amount"
+        ]].tail(24)
+    )
+
+    
 
     grid["total_cost"] = grid["base_cost"] + grid["topside_amount"]
     return grid.sort_values(["property_code", "post_month"]).reset_index(drop=True)
@@ -429,6 +454,18 @@ def main(argv=None) -> int:
         logger.error(str(exc))
         return 1
 
+  logger.info(
+    "Loaded %s topside rows across %s properties",
+    len(topside_df),
+    topside_df["property_code"].nunique()
+)
+
+for code in ["1601", "1702", "1803"]:
+    logger.info(
+        "\nRaw topside data for %s:\n%s",
+        code,
+        topside_df[topside_df["property_code"] == code]
+    )
     logger.info("Computing Monthly NOI...")
     monthly_noi = compute_monthly_noi(noi_df)
     _write_json(_round_for_output(monthly_noi, whole_dollar_columns=["actual_mtd"]), output_dir / "monthly_noi.json")
