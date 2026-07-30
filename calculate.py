@@ -201,6 +201,13 @@ def _load_topside_wide_csv(path: Path) -> pd.DataFrame:
             amount = _parse_accounting_number(row[col_idx])
             if amount is None:
                 continue
+            if property_code in ["1803", "1702", "1601"]:
+                logger.info(
+                    "TOPSIDE PARSE property=%s month=%s amount=%s",
+                    property_code,
+                    month.strftime("%Y-%m-%d"),
+                    amount,
+                )
             records.append(
                 {
                     "property_code": property_code,
