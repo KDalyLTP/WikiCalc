@@ -453,14 +453,14 @@ def main(argv=None) -> int:
         logger.error(str(exc))
         return 1
 
-  logger.info(
+    logger.info(
     "Loaded %s topside rows across %s properties",
     len(topside_df),
     topside_df["property_code"].nunique(),
-)
+    )
 
-for code in ["1601", "1702", "1803"]:
-    logger.info(
+    for code in ["1601", "1702", "1803"]:
+        logger.info(
         "\nRaw topside data for %s:\n%s",
         code,
         topside_df[topside_df["property_code"] == code],
