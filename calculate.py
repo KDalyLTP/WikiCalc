@@ -456,14 +456,14 @@ def main(argv=None) -> int:
   logger.info(
     "Loaded %s topside rows across %s properties",
     len(topside_df),
-    topside_df["property_code"].nunique()
+    topside_df["property_code"].nunique(),
 )
 
 for code in ["1601", "1702", "1803"]:
     logger.info(
         "\nRaw topside data for %s:\n%s",
         code,
-        topside_df[topside_df["property_code"] == code]
+        topside_df[topside_df["property_code"] == code],
     )
     logger.info("Computing Monthly NOI...")
     monthly_noi = compute_monthly_noi(noi_df)
