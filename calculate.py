@@ -248,6 +248,26 @@ def compute_monthly_noi(noi_df: pd.DataFrame) -> pd.DataFrame:
                 "Actual MTD": "actual_mtd",
             }
         )
+                # Build complete property x month matrix
+        all_properties = result["property_code"].unique()
+        all_months = pd.date_range(
+            start=result["post_month"].min(),
+            end=result["post_month"].max(),
+            freq="MS"
+            )
+
+        full_index = pd.MultiIndex.from_product(
+            [all_properties, all_months],
+            names=["property_code", "post_month"]
+        )
+
+        result = (
+            result
+            .set_index(["property_code", "post_month"])
+            .reindex(full_index, fill_value=0)
+            .reset_index()
+        )
+
     )
     return result.sort_values(["property_code", "post_month"]).reset_index(drop=True)
 
@@ -293,8 +313,12 @@ def compute_monthly_cost(cost_df: pd.DataFrame, topside_df: pd.DataFrame) -> pd.
 
     # Full grid: every property x every month that appears anywhere in the Cost
     # data -- cells with no matching Cost rows are treated as 0, not omitted.
+    months = pd.date_range(
+    start=df["Post Month"].min(),
+    end=df["Post Month"].max(),
+    freq="MS"
+    )
     properties = sorted(df["Property Code"].unique())
-    months = sorted(df["Post Month"].unique())
     grid = pd.MultiIndex.from_product([properties, months], names=["property_code", "post_month"]).to_frame(
         index=False
     )
