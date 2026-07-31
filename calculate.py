@@ -250,23 +250,23 @@ def compute_monthly_noi(noi_df: pd.DataFrame) -> pd.DataFrame:
         )
     )
                 # Build complete property x month matrix
-        all_properties = result["property_code"].unique()
-        all_months = pd.date_range(
-            start=result["post_month"].min(),
-            end=result["post_month"].max(),
-            freq="MS"
-            )
+    all_properties = result["property_code"].unique()
+    all_months = pd.date_range(
+        start=result["post_month"].min(),
+        end=result["post_month"].max(),
+        freq="MS"
+         )
 
-        full_index = pd.MultiIndex.from_product(
-            [all_properties, all_months],
-            names=["property_code", "post_month"]
+    full_index = pd.MultiIndex.from_product(
+        [all_properties, all_months],
+        names=["property_code", "post_month"]
         )
 
-        result = (
-            result
-            .set_index(["property_code", "post_month"])
-            .reindex(full_index, fill_value=0)
-            .reset_index()
+    result = (
+        result
+        .set_index(["property_code", "post_month"])
+        .reindex(full_index, fill_value=0)
+        .reset_index()
         )
 
     return result.sort_values(["property_code", "post_month"]).reset_index(drop=True)
