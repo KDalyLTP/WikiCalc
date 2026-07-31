@@ -442,6 +442,25 @@ def compute_quarterly_income_yield(monthly_noi: pd.DataFrame, monthly_cost: pd.D
     return annualized[["property_code", "quarter", "annualized_noi", "cost", "yield_pct"]]
 
 
+def financial_to_json(df):
+    output = {}
+
+    for month, month_df in df.groupby("post_month"):
+        month_key = month.strftime("%Y-%m")
+
+        output[month_key] = {}
+
+        for row in month_df.itertuples():
+            output[month_key][str(row.property_code)] = {
+                "actual_mtd": row.actual_mtd,
+                "base_cost": row.base_cost,
+                "topside_amount": row.topside_amount,
+                "total_cost": row.total_cost
+            }
+
+    return output
+
+
 def _round_for_output(df: pd.DataFrame, whole_dollar_columns=(), decimal_columns=None) -> pd.DataFrame:
     """Round a copy of df for display -- whole_dollar_columns become integers
     (no cents), decimal_columns are rounded to the given number of decimal
