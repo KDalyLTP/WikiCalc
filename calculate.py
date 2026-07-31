@@ -271,6 +271,20 @@ def compute_monthly_noi(noi_df: pd.DataFrame) -> pd.DataFrame:
 
     return result.sort_values(["property_code", "post_month"]).reset_index(drop=True)
 
+def monthly_noi_to_json(df):
+    output = {}
+
+    for month, month_df in df.groupby("post_month"):
+        month_key = month.strftime("%Y-%m")
+
+        output[month_key] = {
+            str(row.property_code): {
+                "actual_mtd": row.actual_mtd
+            }
+            for row in month_df.itertuples()
+        }
+
+    return output
 
 def _topside_adjustment_for_months(topside_df: pd.DataFrame, target_months) -> pd.DataFrame:
     """For every (property_code, month) in target_months, find the topside amount
@@ -488,7 +502,18 @@ def main(argv=None) -> int:
     )
     logger.info("Computing Monthly NOI...")
     monthly_noi = compute_monthly_noi(noi_df)
-    _write_json(_round_for_output(monthly_noi, whole_dollar_columns=["actual_mtd"]), output_dir / "monthly_noi.json")
+
+    monthly_noi = round_for_output(
+        monthly_noi,
+        whole_dollar_columns=["actual_mtd"]
+    )
+
+    monthly_noi_json = monthly_noi_to_json(monthly_noi)
+
+    _write_json(
+        monthly_noi_json,
+        output_dir / "monthly_noi.json"
+    )
     logger.info("Monthly NOI: %d properties, %d months", monthly_noi["property_code"].nunique(), monthly_noi["post_month"].nunique())
 
     logger.info("Computing Monthly Cost (with topside adjustments)...")
