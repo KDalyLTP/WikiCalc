@@ -456,14 +456,21 @@ def _round_for_output(df: pd.DataFrame, whole_dollar_columns=(), decimal_columns
     return df
 
 
-def _write_json(df: pd.DataFrame, path: Path) -> None:
-    records = df.to_dict(orient="records")
-    for record in records:
-        for key, value in record.items():
-            if isinstance(value, pd.Timestamp):
-                record[key] = value.strftime("%Y-%m-%d")
-    with open(path, "w") as f:
-        json.dump(records, f, indent=2, default=str)
+def _write_json(data, path: Path) -> None:
+    if isinstance(data, pd.DataFrame):
+        records = data.to_dict(orient="records")
+
+        for record in records:
+            for key, value in record.items():
+                if isinstance(value, pd.Timestamp):
+                    record[key] = value.strftime("%Y-%m-%d")
+
+        with open(path, "w") as f:
+            json.dump(records, f, indent=2, default=str)
+
+    else:
+        with open(path, "w") as f:
+            json.dump(data, f, indent=2, default=str)
 
 
 def main(argv=None) -> int:
