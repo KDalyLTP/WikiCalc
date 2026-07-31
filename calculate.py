@@ -248,6 +248,7 @@ def compute_monthly_noi(noi_df: pd.DataFrame) -> pd.DataFrame:
                 "Actual MTD": "actual_mtd",
             }
         )
+    )
                 # Build complete property x month matrix
         all_properties = result["property_code"].unique()
         all_months = pd.date_range(
@@ -268,7 +269,6 @@ def compute_monthly_noi(noi_df: pd.DataFrame) -> pd.DataFrame:
             .reset_index()
         )
 
-    )
     return result.sort_values(["property_code", "post_month"]).reset_index(drop=True)
 
 
