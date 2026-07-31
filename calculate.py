@@ -78,7 +78,7 @@ DEFAULT_OUTPUT_DIR = BASE_DIR / "data" / "output"
 
 NOI_REQUIRED_COLUMNS = ["Property Code", "Post Month", "Actual MTD"]
 COST_REQUIRED_COLUMNS = ["Property Code", "Post Month", "Actual Beginning Balance", "Actual MTD"]
-TOPSIDE_REQUIRED_COLUMNS = ["property_code", "currency", "post_month", "amount"]
+TOPSIDE_REQUIRED_COLUMNS = ["property_code", "post_month", "amount"]
 
 
 class InputValidationError(ValueError):
@@ -175,20 +175,15 @@ def _load_topside_wide_csv(path: Path) -> pd.DataFrame:
     raw = pd.read_csv(path, header=None, dtype=str, keep_default_na=False)
     header_row = raw.iloc[0]
 
-    currency_col = None
     month_cols = {}
     for col_idx, value in header_row.items():
-        if str(value).strip().lower() == "currency":
-            currency_col = col_idx
-            continue
         month = _parse_month_header(value)
         if month is not None:
             month_cols[col_idx] = month
 
-    if currency_col is None or not month_cols:
+    if not month_cols:
         raise InputValidationError(
-            f"{path.name} does not look like a Topside Entries export -- expected a "
-            "'Currency' column and month columns formatted like 'Jan-23'."
+            f"{path.name} does not look like a Topside Entries export -- expected a month columns formatted like 'Jan-23'."
         )
 
     records = []
@@ -196,7 +191,6 @@ def _load_topside_wide_csv(path: Path) -> pd.DataFrame:
         property_code = str(row[0]).strip()
         if not property_code:
             continue
-        currency = str(row[currency_col]).strip()
         for col_idx, month in month_cols.items():
             amount = _parse_accounting_number(row[col_idx])
             if amount is None:
@@ -211,7 +205,6 @@ def _load_topside_wide_csv(path: Path) -> pd.DataFrame:
             records.append(
                 {
                     "property_code": property_code,
-                    "currency": currency,
                     "post_month": month,
                     "amount": amount,
                 }
@@ -220,7 +213,7 @@ def _load_topside_wide_csv(path: Path) -> pd.DataFrame:
 
 
 def _load_topside_tidy_csv(path: Path) -> pd.DataFrame:
-    df = pd.read_csv(path, dtype={"property_code": str, "currency": str})
+    df = pd.read_csv(path, dtype={"property_code": str})
     _require_columns(df, TOPSIDE_REQUIRED_COLUMNS, path.name)
     df = _drop_blank_rows(df, TOPSIDE_REQUIRED_COLUMNS)
     df["property_code"] = _normalize_property_code(df["property_code"])
