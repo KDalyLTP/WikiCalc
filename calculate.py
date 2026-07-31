@@ -555,6 +555,24 @@ def main(argv=None) -> int:
         quarterly_income_yield["quarter"].nunique(),
     )
 
+    financial = (
+    monthly_noi
+    .merge(
+        monthly_cost,
+        on=["property_code", "post_month"],
+        how="outer"
+    )
+    .fillna(0)
+)
+
+    financial_json = financial_to_json(financial)
+
+    _write_json(
+        financial_json,
+        output_dir / "financial.json"
+    )
+
+
     logger.info("All calculations complete. Output written to %s", output_dir)
     return 0
 
