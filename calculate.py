@@ -503,7 +503,7 @@ def main(argv=None) -> int:
     logger.info("Computing Monthly NOI...")
     monthly_noi = compute_monthly_noi(noi_df)
 
-    monthly_noi = round_for_output(
+    monthly_noi = _round_for_output(
         monthly_noi,
         whole_dollar_columns=["actual_mtd"]
     )
