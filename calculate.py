@@ -255,8 +255,7 @@ def compute_monthly_noi(noi_df: pd.DataFrame) -> pd.DataFrame:
 def _topside_adjustment_for_months(topside_df: pd.DataFrame, target_months) -> pd.DataFrame:
     """For every (property_code, month) in target_months, find the topside amount
     that applies -- the most recent explicit entry at or before that month,
-    carried forward, defaulting to 0 if the property has no entry at or before
-    that month."""
+    defaulting to 0 if the property has no entry at that month."""
     target_months = pd.DatetimeIndex(sorted(pd.to_datetime(pd.Series(target_months)).unique()))
 
     frames = []
@@ -265,10 +264,8 @@ def _topside_adjustment_for_months(topside_df: pd.DataFrame, target_months) -> p
         combined_index = pd.DatetimeIndex(sorted(set(entries["post_month"]) | set(target_months)))
         carried = (
             entries.set_index("post_month")["amount"]
-            .reindex(combined_index)
-            .ffill()
-            .fillna(0.0)
             .reindex(target_months)
+            .fillna(0.0)
         )
         frames.append(
             pd.DataFrame(
