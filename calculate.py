@@ -122,7 +122,7 @@ BUILDING_START_DEBT_REQUIRED_COLUMNS = ["building", "startDebt"]
 # Only these two debt.csv categories represent an actual change to the
 # outstanding debt balance. "Interest Expense" and "Capitalized Interest
 # (Contra)" are P&L-only bookkeeping entries -- see the module docstring.
-DEBT_BALANCE_CATEGORIES = ["Payment/Draw", "Capitalized Interest"]
+DEBT_BALANCE_CATEGORIES = ["Payment/Draw"]
 
 
 class InputValidationError(ValueError):
