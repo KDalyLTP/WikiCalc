@@ -22,6 +22,30 @@ Required input columns:
           explicit "change point" -- see README).
       A property/month with no entry at or before it defaults to a $0 adjustment.
 
+  data/input/building_startDebt.csv
+      building, startDebt -- one row per building, the outstanding debt
+      balance immediately before the earliest month in debt.csv (i.e. the
+      Dec-2022 closing balance that Jan-2023's movements apply on top of).
+
+  data/input/debt.csv
+      Property Code, Post Month, Category, Actual MTD -- one row per GL
+      account movement. Only two categories change the outstanding debt
+      balance:
+        - Payment/Draw: principal draws (positive) and paydowns (negative).
+        - Capitalized Interest (the "WIP Cap Interest" GL account): interest
+          added to the loan balance instead of being paid in cash.
+      "Interest Expense" and "Capitalized Interest (Contra)" are P&L-only
+      entries (the latter is the offsetting entry against Interest Expense
+      when interest is capitalized) and are excluded -- including them would
+      double-count the Capitalized Interest movement for construction loans
+      and misstate the balance for every other loan, where interest is paid
+      in cash and never touches principal.
+      A building with no debt.csv rows at all carries its startDebt balance
+      forward flat across every month. A building with no startDebt at all
+      (no row in building_startDebt.csv) gets a debt_balance of 0 in
+      financial.json, consistent with how every other missing property/month
+      combo in this pipeline defaults to 0 rather than being omitted.
+
 Calculations produced (data/output/*.json):
 
   monthly_noi.json
@@ -47,6 +71,13 @@ Calculations produced (data/output/*.json):
       (annualizedNOI / cost) * 100, where cost = Monthly Cost as of the
       quarter's final month; 0 if cost is 0. Same annualizedNOI as
       quarterly_noi.json.
+
+  financial.json
+      Monthly NOI and Monthly Cost merged per property, PLUS debt_balance:
+      the building's startDebt (from building_startDebt.csv) rolled forward
+      month by month with the Payment/Draw and Capitalized Interest movements
+      from debt.csv (see the debt.csv note above for exactly which rows count
+      and why).
 
 All dollar figures in the output JSON are rounded to whole numbers (no
 cents). Rounding is applied only when writing each file, never to the
@@ -79,6 +110,13 @@ DEFAULT_OUTPUT_DIR = BASE_DIR / "data" / "output"
 NOI_REQUIRED_COLUMNS = ["Property Code", "Post Month", "Actual MTD"]
 COST_REQUIRED_COLUMNS = ["Property Code", "Post Month", "Actual Beginning Balance", "Actual MTD"]
 TOPSIDE_REQUIRED_COLUMNS = ["property_code", "post_month", "amount"]
+DEBT_REQUIRED_COLUMNS = ["Property Code", "Post Month", "Category", "Actual MTD"]
+BUILDING_START_DEBT_REQUIRED_COLUMNS = ["building", "startDebt"]
+
+# Only these two debt.csv categories represent an actual change to the
+# outstanding debt balance. "Interest Expense" and "Capitalized Interest
+# (Contra)" are P&L-only bookkeeping entries -- see the module docstring.
+DEBT_BALANCE_CATEGORIES = ["Payment/Draw", "Capitalized Interest"]
 
 
 class InputValidationError(ValueError):
@@ -127,6 +165,31 @@ def load_cost_csv(path: Path) -> pd.DataFrame:
     df["Post Month"] = pd.to_datetime(df["Post Month"])
     df["Actual Beginning Balance"] = pd.to_numeric(df["Actual Beginning Balance"])
     df["Actual MTD"] = pd.to_numeric(df["Actual MTD"])
+    return df
+
+
+def load_building_start_debt_csv(path: Path) -> pd.DataFrame:
+    df = pd.read_csv(path, dtype={"building": str})
+    _require_columns(df, BUILDING_START_DEBT_REQUIRED_COLUMNS, path.name)
+    df = _drop_blank_rows(df, BUILDING_START_DEBT_REQUIRED_COLUMNS)
+    df["building"] = _normalize_property_code(df["building"])
+    df["startDebt"] = pd.to_numeric(df["startDebt"])
+    return df
+
+
+def load_debt_csv(path: Path) -> pd.DataFrame:
+    df = pd.read_csv(path, dtype={"Property Code": str})
+    # The source export's Actual MTD header has stray leading/trailing spaces
+    # (" Actual MTD ") -- normalize before validating required columns.
+    df.columns = [str(col).strip() for col in df.columns]
+    _require_columns(df, DEBT_REQUIRED_COLUMNS, path.name)
+    df = _drop_blank_rows(df, DEBT_REQUIRED_COLUMNS)
+    df["Property Code"] = _normalize_property_code(df["Property Code"])
+    df["Post Month"] = pd.to_datetime(df["Post Month"])
+    df["Category"] = df["Category"].astype(str).str.strip()
+    # Actual MTD is accounting-formatted (e.g. " 13,212.02 ", "(4,209,523.24)"),
+    # not a plain number -- reuse the same parser as the Topside Entries file.
+    df["Actual MTD"] = df["Actual MTD"].apply(_parse_accounting_number)
     return df
 
 
@@ -371,6 +434,50 @@ def compute_monthly_cost(cost_df: pd.DataFrame, topside_df: pd.DataFrame) -> pd.
     return grid.sort_values(["property_code", "post_month"]).reset_index(drop=True)
 
 
+def compute_monthly_debt_balance(
+    debt_df: pd.DataFrame, building_start_debt_df: pd.DataFrame, target_months
+) -> pd.DataFrame:
+    """Roll each building's startDebt forward month by month: debt_balance for
+    a given month is startDebt plus the cumulative sum of Payment/Draw and
+    Capitalized Interest movements from debt.csv, from the first target month
+    through that month. A building with no matching debt.csv rows carries its
+    startDebt forward flat (zero movement every month)."""
+    target_months = pd.DatetimeIndex(sorted(pd.to_datetime(pd.Series(target_months)).unique()))
+
+    movement = (
+        debt_df[debt_df["Category"].isin(DEBT_BALANCE_CATEGORIES)]
+        .groupby(["Property Code", "Post Month"], as_index=False)["Actual MTD"]
+        .sum()
+        .rename(columns={"Property Code": "property_code", "Post Month": "post_month", "Actual MTD": "movement"})
+    )
+    movement_by_property = {
+        property_code: group.set_index("post_month")["movement"]
+        for property_code, group in movement.groupby("property_code")
+    }
+
+    frames = []
+    for row in building_start_debt_df.itertuples():
+        building = row.building
+        monthly_movement = movement_by_property.get(building)
+        if monthly_movement is None:
+            monthly_movement = pd.Series(0.0, index=target_months)
+        else:
+            monthly_movement = monthly_movement.reindex(target_months).fillna(0.0)
+        debt_balance = row.startDebt + monthly_movement.cumsum()
+        frames.append(
+            pd.DataFrame(
+                {
+                    "property_code": building,
+                    "post_month": target_months,
+                    "debt_balance": debt_balance.values,
+                }
+            )
+        )
+    if not frames:
+        return pd.DataFrame(columns=["property_code", "post_month", "debt_balance"])
+    return pd.concat(frames, ignore_index=True).sort_values(["property_code", "post_month"]).reset_index(drop=True)
+
+
 def _quarter_label(post_month: pd.Timestamp) -> str:
     quarter_num = (post_month.month - 1) // 3 + 1
     return f"{post_month.year}-Q{quarter_num}"
@@ -455,7 +562,8 @@ def financial_to_json(df):
                 "actual_mtd": row.actual_mtd,
                 "base_cost": row.base_cost,
                 "topside_amount": row.topside_amount,
-                "total_cost": row.total_cost
+                "total_cost": row.total_cost,
+                "debt_balance": row.debt_balance
             }
 
     return output
@@ -494,11 +602,13 @@ def _write_json(data, path: Path) -> None:
 
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description="Calculate Monthly NOI, Monthly Cost, Quarterly NOI, and Quarterly Income Yield from manually-supplied CSVs.")
-    parser.add_argument("--input-dir", default=str(DEFAULT_INPUT_DIR), help="Directory containing noi.csv, cost.csv, topside_entries.csv.")
+    parser.add_argument("--input-dir", default=str(DEFAULT_INPUT_DIR), help="Directory containing noi.csv, cost.csv, topside_entries.csv, debt.csv, building_startDebt.csv.")
     parser.add_argument("--output-dir", default=str(DEFAULT_OUTPUT_DIR), help="Directory to write output JSON to.")
     parser.add_argument("--noi-file", default="noi.csv")
     parser.add_argument("--cost-file", default="cost.csv")
     parser.add_argument("--topside-file", default="topside_entries.csv")
+    parser.add_argument("--debt-file", default="debt.csv")
+    parser.add_argument("--building-start-debt-file", default="building_startDebt.csv")
     args = parser.parse_args(argv)
 
     input_dir = Path(args.input_dir)
@@ -510,6 +620,8 @@ def main(argv=None) -> int:
         noi_df = load_noi_csv(input_dir / args.noi_file)
         cost_df = load_cost_csv(input_dir / args.cost_file)
         topside_df = load_topside_csv(input_dir / args.topside_file)
+        debt_df = load_debt_csv(input_dir / args.debt_file)
+        building_start_debt_df = load_building_start_debt_csv(input_dir / args.building_start_debt_file)
     except (InputValidationError, FileNotFoundError) as exc:
         logger.error(str(exc))
         return 1
@@ -574,10 +686,27 @@ def main(argv=None) -> int:
         quarterly_income_yield["quarter"].nunique(),
     )
 
+    logger.info("Computing Monthly Debt Balance...")
+    debt_target_months = pd.DatetimeIndex(
+        sorted(set(monthly_noi["post_month"]) | set(monthly_cost["post_month"]) | set(debt_df["Post Month"]))
+    )
+    monthly_debt_balance = compute_monthly_debt_balance(debt_df, building_start_debt_df, debt_target_months)
+    monthly_debt_balance = _round_for_output(monthly_debt_balance, whole_dollar_columns=["debt_balance"])
+    logger.info(
+        "Monthly Debt Balance: %d buildings, %d months",
+        monthly_debt_balance["property_code"].nunique(),
+        monthly_debt_balance["post_month"].nunique(),
+    )
+
     financial = (
     monthly_noi
     .merge(
         monthly_cost,
+        on=["property_code", "post_month"],
+        how="outer"
+    )
+    .merge(
+        monthly_debt_balance,
         on=["property_code", "post_month"],
         how="outer"
     )
