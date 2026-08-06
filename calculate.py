@@ -24,8 +24,10 @@ Required input columns:
 
   data/input/building_startDebt.csv
       building, startDebt -- one row per building, the outstanding debt
-      balance immediately before the earliest month in debt.csv (i.e. the
-      Dec-2022 closing balance that Jan-2023's movements apply on top of).
+      balance AS OF the earliest month in the reports (Jan-2023). That
+      month's movements are NOT applied on top of it -- startDebt already
+      is the Jan-2023 balance; the rollforward starts applying debt.csv
+      movements from the following month onward.
 
   data/input/debt.csv
       Property Code, Post Month, Category, Actual MTD -- one row per GL
@@ -40,6 +42,10 @@ Required input columns:
       double-count the Capitalized Interest movement for construction loans
       and misstate the balance for every other loan, where interest is paid
       in cash and never touches principal.
+      Each month's balance is rounded to a whole dollar before being carried
+      forward as the next month's opening balance (matching the source
+      ledger), so rounding compounds intentionally here rather than being
+      deferred to output time as it is elsewhere in this file.
       A building with no debt.csv rows at all carries its startDebt balance
       forward flat across every month. A building with no startDebt at all
       (no row in building_startDebt.csv) gets a debt_balance of 0 in
@@ -437,11 +443,17 @@ def compute_monthly_cost(cost_df: pd.DataFrame, topside_df: pd.DataFrame) -> pd.
 def compute_monthly_debt_balance(
     debt_df: pd.DataFrame, building_start_debt_df: pd.DataFrame, target_months
 ) -> pd.DataFrame:
-    """Roll each building's startDebt forward month by month: debt_balance for
-    a given month is startDebt plus the cumulative sum of Payment/Draw and
-    Capitalized Interest movements from debt.csv, from the first target month
-    through that month. A building with no matching debt.csv rows carries its
-    startDebt forward flat (zero movement every month)."""
+    """Roll each building's startDebt forward month by month.
+
+    startDebt is already the balance AS OF the first target month (Jan 2023)
+    -- no movement is applied for that month. Each following month's balance
+    is the PRIOR month's *rounded* balance plus that month's Payment/Draw and
+    Capitalized Interest movements from debt.csv, rounded to a whole dollar
+    before being carried forward as the next month's opening balance (this
+    matches the source ledger, which books and carries forward whole-dollar
+    balances rather than fractional cents). A building with no matching
+    debt.csv rows carries its startDebt forward flat (zero movement every
+    month)."""
     target_months = pd.DatetimeIndex(sorted(pd.to_datetime(pd.Series(target_months)).unique()))
 
     movement = (
@@ -463,13 +475,20 @@ def compute_monthly_debt_balance(
             monthly_movement = pd.Series(0.0, index=target_months)
         else:
             monthly_movement = monthly_movement.reindex(target_months).fillna(0.0)
-        debt_balance = row.startDebt + monthly_movement.cumsum()
+
+        balances = []
+        balance = round(row.startDebt)
+        for i, month in enumerate(target_months):
+            if i > 0:
+                balance = round(balance + monthly_movement.loc[month])
+            balances.append(balance)
+
         frames.append(
             pd.DataFrame(
                 {
                     "property_code": building,
                     "post_month": target_months,
-                    "debt_balance": debt_balance.values,
+                    "debt_balance": balances,
                 }
             )
         )
