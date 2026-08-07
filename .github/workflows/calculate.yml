@@ -1,4 +1,4 @@
-name: Calculate NOI, Cost, and Income Yield
+name: Calculate NOI, Cost, Income Yield, and Building Stacking
 
 on:
   workflow_dispatch:
@@ -20,6 +20,9 @@ jobs:
 
       - name: Run calculations
         run: python calculate.py
+
+      - name: Build building stacking plan
+        run: python stacking.py parse
 
       - name: Upload calculated report artifact
         uses: actions/upload-artifact@v4
