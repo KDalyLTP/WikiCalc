@@ -2,8 +2,6 @@
   "buildings": {
     "1101": {
       "propertyId": 41,
-      "acquiredYear": 2011,
-      "acquisitionCost": null,
       "units": {
         "164": {
           "type": null,
@@ -14,8 +12,6 @@
     },
     "1102": {
       "propertyId": 2,
-      "acquiredYear": 2011,
-      "acquisitionCost": 2378402.94,
       "units": {
         "10": {
           "type": "Office",
@@ -86,8 +82,6 @@
     },
     "1103": {
       "propertyId": 3,
-      "acquiredYear": 2011,
-      "acquisitionCost": 4222624.6,
       "units": {
         "38": {
           "type": "Misc. Products Manufacturing Class B",
@@ -103,8 +97,6 @@
     },
     "1104": {
       "propertyId": 17,
-      "acquiredYear": 2011,
-      "acquisitionCost": 17745451.61,
       "units": {
         "31": {
           "type": "Office",
@@ -235,8 +227,6 @@
     },
     "1201": {
       "propertyId": 4,
-      "acquiredYear": 2012,
-      "acquisitionCost": 2943469.0,
       "units": {
         "2": {
           "type": null,
@@ -252,8 +242,6 @@
     },
     "1202": {
       "propertyId": 5,
-      "acquiredYear": 2012,
-      "acquisitionCost": null,
       "units": {
         "39": {
           "type": null,
@@ -264,8 +252,6 @@
     },
     "1203": {
       "propertyId": 6,
-      "acquiredYear": 2012,
-      "acquisitionCost": 3814921.19,
       "units": {
         "41": {
           "type": "Manufacturing",
@@ -291,8 +277,6 @@
     },
     "1204": {
       "propertyId": 7,
-      "acquiredYear": 2012,
-      "acquisitionCost": 657819.64,
       "units": {
         "36": {
           "type": "Bakery with Ancillary Retail",
@@ -308,8 +292,6 @@
     },
     "1205": {
       "propertyId": 8,
-      "acquiredYear": 2012,
-      "acquisitionCost": 2522704.24,
       "units": {
         "43": {
           "type": "Office, Group D Occupancy",
@@ -325,8 +307,6 @@
     },
     "1206": {
       "propertyId": 9,
-      "acquiredYear": 2012,
-      "acquisitionCost": null,
       "units": {
         "45": {
           "type": null,
@@ -352,8 +332,6 @@
     },
     "1207": {
       "propertyId": 10,
-      "acquiredYear": 2012,
-      "acquisitionCost": null,
       "units": {
         "50": {
           "type": null,
@@ -384,8 +362,6 @@
     },
     "1208": {
       "propertyId": 11,
-      "acquiredYear": 2012,
-      "acquisitionCost": 5758430.62,
       "units": {
         "56": {
           "type": "Office - Group D",
@@ -411,8 +387,6 @@
     },
     "1209": {
       "propertyId": 12,
-      "acquiredYear": 2012,
-      "acquisitionCost": 8554754.32,
       "units": {
         "59": {
           "type": "Manufacturing, Group F, Div. 2 Occupancy",
@@ -433,8 +407,6 @@
     },
     "1210": {
       "propertyId": 13,
-      "acquiredYear": 2012,
-      "acquisitionCost": null,
       "units": {
         "63": {
           "type": "Office",
@@ -460,8 +432,6 @@
     },
     "1211": {
       "propertyId": 14,
-      "acquiredYear": 2012,
-      "acquisitionCost": 4651438.21,
       "units": {
         "67": {
           "type": "Office",
@@ -492,8 +462,6 @@
     },
     "1212": {
       "propertyId": 15,
-      "acquiredYear": 2012,
-      "acquisitionCost": 7079765.87,
       "units": {
         "73": {
           "type": "Office",
@@ -529,8 +497,6 @@
     },
     "1213": {
       "propertyId": 16,
-      "acquiredYear": 2012,
-      "acquisitionCost": 3163547.58,
       "units": {
         "76": {
           "type": "Meta Products Manufacturing",
@@ -551,8 +517,6 @@
     },
     "1301": {
       "propertyId": 18,
-      "acquiredYear": 2013,
-      "acquisitionCost": 15702246.08,
       "units": {
         "109": {
           "type": "General/Health Care Office",
@@ -578,8 +542,6 @@
     },
     "1302": {
       "propertyId": 19,
-      "acquiredYear": 2013,
-      "acquisitionCost": 7497112.11,
       "units": {
         "78": {
           "type": null,
@@ -625,8 +587,6 @@
     },
     "1303": {
       "propertyId": 43,
-      "acquiredYear": 2013,
-      "acquisitionCost": 6747897.38,
       "units": {
         "259": {
           "type": "Retail",
@@ -677,8 +637,6 @@
     },
     "1304": {
       "propertyId": 21,
-      "acquiredYear": 2013,
-      "acquisitionCost": 32660866.71,
       "units": {
         "104": {
           "type": "Laboratory",
@@ -849,8 +807,6 @@
     },
     "1305": {
       "propertyId": 22,
-      "acquiredYear": 2013,
-      "acquisitionCost": 1945273.01,
       "units": {
         "403": {
           "type": "Flour Milling with Ancillary Retail",
@@ -871,8 +827,6 @@
     },
     "1306": {
       "propertyId": 23,
-      "acquiredYear": 2013,
-      "acquisitionCost": 6442542.42,
       "units": {
         "145": {
           "type": "Office, Group D Occupancy",
@@ -968,8 +922,6 @@
     },
     "1307": {
       "propertyId": 24,
-      "acquiredYear": 2013,
-      "acquisitionCost": 2591825.91,
       "units": {
         "132": {
           "type": "Brewery with Tasting Lounge",
@@ -980,8 +932,6 @@
     },
     "1401": {
       "propertyId": 25,
-      "acquiredYear": 2014,
-      "acquisitionCost": 30730855.81,
       "units": {
         "131": {
           "type": "Commercial",
@@ -1012,8 +962,6 @@
     },
     "1402": {
       "propertyId": 26,
-      "acquiredYear": 2014,
-      "acquisitionCost": 4542425.82,
       "units": {
         "35740": {
           "type": null,
@@ -1029,8 +977,6 @@
     },
     "1404": {
       "propertyId": 28,
-      "acquiredYear": 2014,
-      "acquisitionCost": 14364955.12,
       "units": {
         "258": {
           "type": "TBD",
@@ -1056,8 +1002,6 @@
     },
     "1405": {
       "propertyId": 29,
-      "acquiredYear": 2014,
-      "acquisitionCost": 6403647.63,
       "units": {
         "126": {
           "type": "Manufacturing, Group F, Div. 2",
@@ -1073,8 +1017,6 @@
     },
     "1501": {
       "propertyId": 30,
-      "acquiredYear": 2015,
-      "acquisitionCost": 3343809.47,
       "units": {
         "124": {
           "type": null,
@@ -1090,8 +1032,6 @@
     },
     "1502": {
       "propertyId": 31,
-      "acquiredYear": 2015,
-      "acquisitionCost": 7236129.96,
       "units": {
         "122": {
           "type": "Wholesale, Class A, F2 Occupancy",
@@ -1112,8 +1052,6 @@
     },
     "1503": {
       "propertyId": 32,
-      "acquiredYear": 2015,
-      "acquisitionCost": 25025306.04,
       "units": {
         "163": {
           "type": "Office",
@@ -1204,8 +1142,6 @@
     },
     "1504": {
       "propertyId": 45,
-      "acquiredYear": 2015,
-      "acquisitionCost": null,
       "units": {
         "167": {
           "type": null,
@@ -1221,8 +1157,6 @@
     },
     "1505": {
       "propertyId": 47,
-      "acquiredYear": 2015,
-      "acquisitionCost": 15593728.86,
       "units": {
         "165": {
           "type": "Service, Limited Food Retail",
@@ -1238,8 +1172,6 @@
     },
     "1506": {
       "propertyId": 35,
-      "acquiredYear": 2015,
-      "acquisitionCost": null,
       "units": {
         "105": {
           "type": null,
@@ -1250,8 +1182,6 @@
     },
     "1507": {
       "propertyId": 36,
-      "acquiredYear": 2015,
-      "acquisitionCost": 4693768.38,
       "units": {
         "401": {
           "type": "-",
@@ -1272,8 +1202,6 @@
     },
     "1508": {
       "propertyId": 37,
-      "acquiredYear": 2015,
-      "acquisitionCost": 0.0,
       "units": {
         "119": {
           "type": null,
@@ -1284,8 +1212,6 @@
     },
     "1509": {
       "propertyId": 38,
-      "acquiredYear": 2015,
-      "acquisitionCost": 2737958.9,
       "units": {
         "118": {
           "type": "Vehicle Dealer",
@@ -1296,8 +1222,6 @@
     },
     "1601": {
       "propertyId": 39,
-      "acquiredYear": 2016,
-      "acquisitionCost": 10031116.58,
       "units": {
         "115": {
           "type": null,
@@ -1338,8 +1262,6 @@
     },
     "1602": {
       "propertyId": 117,
-      "acquiredYear": 2016,
-      "acquisitionCost": 87551063.09,
       "units": {
         "368": {
           "type": "Office",
@@ -1505,8 +1427,6 @@
     },
     "1603": {
       "propertyId": 79,
-      "acquiredYear": 2016,
-      "acquisitionCost": 12974152.19,
       "units": {
         "314": {
           "type": "Office",
@@ -1622,8 +1542,6 @@
     },
     "1604": {
       "propertyId": 64,
-      "acquiredYear": 2016,
-      "acquisitionCost": 34015519.26,
       "units": {
         "337": {
           "type": null,
@@ -1657,8 +1575,6 @@
     },
     "1701": {
       "propertyId": 68,
-      "acquiredYear": 2017,
-      "acquisitionCost": 0.0,
       "units": {
         "301": {
           "type": null,
@@ -1679,8 +1595,6 @@
     },
     "1702": {
       "propertyId": 72,
-      "acquiredYear": 2017,
-      "acquisitionCost": 16732644.09,
       "units": {
         "303": {
           "type": null,
@@ -1696,8 +1610,6 @@
     },
     "1704": {
       "propertyId": 153,
-      "acquiredYear": 2017,
-      "acquisitionCost": 59004103.86,
       "units": {
         "398": {
           "type": "Office - Group D",
@@ -1743,8 +1655,6 @@
     },
     "1801": {
       "propertyId": 105,
-      "acquiredYear": 2018,
-      "acquisitionCost": 31776842.1,
       "units": {
         "320": {
           "type": "Retail, Limited Food",
@@ -1780,8 +1690,6 @@
     },
     "1802": {
       "propertyId": 104,
-      "acquiredYear": 2018,
-      "acquisitionCost": 1871204.61,
       "units": {
         "374": {
           "type": null,
@@ -1792,8 +1700,6 @@
     },
     "1803": {
       "propertyId": 110,
-      "acquiredYear": 2018,
-      "acquisitionCost": 5643932.39,
       "units": {
         "961": {
           "type": null,
@@ -1809,8 +1715,6 @@
     },
     "1901": {
       "propertyId": 139,
-      "acquiredYear": 2019,
-      "acquisitionCost": 6690096.72,
       "units": {
         "377": {
           "type": null,
@@ -1831,8 +1735,6 @@
     },
     "1902": {
       "propertyId": 147,
-      "acquiredYear": 2019,
-      "acquisitionCost": 5342607.42,
       "units": {
         "387": {
           "type": "Office",
@@ -1858,8 +1760,6 @@
     },
     "2101": {
       "propertyId": 160,
-      "acquiredYear": 2021,
-      "acquisitionCost": 106285156.61,
       "units": {
         "1378": {
           "type": "Office",
@@ -1895,8 +1795,6 @@
     },
     "2102": {
       "propertyId": 285,
-      "acquiredYear": 2021,
-      "acquisitionCost": 121051701.7,
       "units": {
         "3020": {
           "type": "Office",
@@ -1912,8 +1810,6 @@
     },
     "2201": {
       "propertyId": 421,
-      "acquiredYear": 2022,
-      "acquisitionCost": 5281043.13,
       "units": {
         "10417": {
           "type": "Retail",
@@ -1924,8 +1820,6 @@
     },
     "2202": {
       "propertyId": 422,
-      "acquiredYear": 2022,
-      "acquisitionCost": 5283448.13,
       "units": {
         "10418": {
           "type": "Retail",
@@ -1936,8 +1830,6 @@
     },
     "2203": {
       "propertyId": 423,
-      "acquiredYear": 2022,
-      "acquisitionCost": 5283448.13,
       "units": {
         "10419": {
           "type": "Retail",
@@ -1948,8 +1840,6 @@
     },
     "2204": {
       "propertyId": 424,
-      "acquiredYear": 2022,
-      "acquisitionCost": 5283448.13,
       "units": {
         "10420": {
           "type": "Retail",
@@ -1960,8 +1850,6 @@
     },
     "2205": {
       "propertyId": 425,
-      "acquiredYear": 2022,
-      "acquisitionCost": 5675010.62,
       "units": {
         "10422": {
           "type": "Retail",
@@ -1977,8 +1865,6 @@
     },
     "2301": {
       "propertyId": 607,
-      "acquiredYear": 2023,
-      "acquisitionCost": 7293692.94,
       "units": {
         "16397": {
           "type": "Retail",
@@ -1989,8 +1875,6 @@
     },
     "2302": {
       "propertyId": 610,
-      "acquiredYear": 2023,
-      "acquisitionCost": 5802639.57,
       "units": {
         "16399": {
           "type": "Retail",
@@ -2006,8 +1890,6 @@
     },
     "2303": {
       "propertyId": 611,
-      "acquiredYear": 2023,
-      "acquisitionCost": 6282603.2,
       "units": {
         "16401": {
           "type": "Retail",
@@ -2023,8 +1905,6 @@
     },
     "2304": {
       "propertyId": 1095,
-      "acquiredYear": 2023,
-      "acquisitionCost": 10615091.69,
       "units": {
         "24386": {
           "type": null,
@@ -2060,8 +1940,6 @@
     },
     "2305": {
       "propertyId": 1097,
-      "acquiredYear": 2023,
-      "acquisitionCost": 1916134.75,
       "units": {
         "25726": {
           "type": "Office",
@@ -2082,8 +1960,6 @@
     },
     "2501": {
       "propertyId": 1598,
-      "acquiredYear": 2025,
-      "acquisitionCost": 1922165.06,
       "units": {
         "32366": {
           "type": null,
