@@ -49,7 +49,7 @@ Required input columns:
       A building with no debt.csv rows at all carries its startDebt balance
       forward flat across every month. A building with no startDebt at all
       (no row in building_startDebt.csv) gets a debt_balance of 0 in
-      financial.json, consistent with how every other missing property/month
+      liveFinance.json, consistent with how every other missing property/month
       combo in this pipeline defaults to 0 rather than being omitted.
 
 Calculations produced (data/output/*.json):
@@ -78,7 +78,7 @@ Calculations produced (data/output/*.json):
       quarter's final month; 0 if cost is 0. Same annualizedNOI as
       quarterly_noi.json.
 
-  financial.json
+  liveFinance.json
       Monthly NOI and Monthly Cost merged per property, PLUS debt_balance:
       the building's startDebt (from building_startDebt.csv) rolled forward
       month by month with the Payment/Draw and Capitalized Interest movements
@@ -736,7 +736,7 @@ def main(argv=None) -> int:
 
     _write_json(
         financial_json,
-        output_dir / "financial.json"
+        output_dir / "liveFinance.json"
     )
 
 
