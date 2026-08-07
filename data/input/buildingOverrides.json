@@ -1,0 +1,2096 @@
+{
+  "buildings": {
+    "1101": {
+      "propertyId": 41,
+      "acquiredYear": 2011,
+      "acquisitionCost": null,
+      "units": {
+        "164": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "1102": {
+      "propertyId": 2,
+      "acquiredYear": 2011,
+      "acquisitionCost": 2378402.94,
+      "units": {
+        "10": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "11": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "12": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "13": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "14": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "3": {
+          "type": "Service, Restaurant Class 1",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "4": {
+          "type": "Retail",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "5": {
+          "type": "Service - Beauty Salon",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "../../../../Properties/1303%20-%20166%20East%2011th/05%20-%20Leasing/03%20-%20Tenants%20Current/Commercial/Stone%20Fox%20Hair/TI/Stone%20Fox%20-%20OccupancyPermit%20(17).pdf"
+        },
+        "6": {
+          "type": "TBD",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "../../../../Properties/1303%20-%20166%20East%2011th/05%20-%20Leasing/03%20-%20Tenants%20Current/Commercial/Stone%20Fox%20Hair/TI/Stone%20Fox%20-%20OccupancyPermit%20(17).pdf"
+        },
+        "7": {
+          "type": "Service, Beauty Salon",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "8": {
+          "type": "Beauty/Wellness",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "9": {
+          "type": "TBD",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "319": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "1103": {
+      "propertyId": 3,
+      "acquiredYear": 2011,
+      "acquisitionCost": 4222624.6,
+      "units": {
+        "38": {
+          "type": "Misc. Products Manufacturing Class B",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "37": {
+          "type": "Misc. Products Manufacturing Class B",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "1104": {
+      "propertyId": 17,
+      "acquiredYear": 2011,
+      "acquisitionCost": 17745451.61,
+      "units": {
+        "31": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "(2017 ANSI/BOMA Z65.1)",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=39123011"
+        },
+        "29": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "(2017 ANSI/BOMA Z65.1)",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=39123011"
+        },
+        "34": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "(2017 ANSI/BOMA Z65.1)",
+          "typeLinkxcl": null
+        },
+        "30": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "(2017 ANSI/BOMA Z65.1)",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=39123011"
+        },
+        "27": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "(2017 ANSI/BOMA Z65.1)",
+          "typeLinkxcl": null
+        },
+        "28": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "(2017 ANSI/BOMA Z65.1)",
+          "typeLinkxcl": null
+        },
+        "26": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "(2017 ANSI/BOMA Z65.1)",
+          "typeLinkxcl": null
+        },
+        "29043": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "(2017 ANSI/BOMA Z65.1)",
+          "typeLinkxcl": null
+        },
+        "21": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "(2017 ANSI/BOMA Z65.1)",
+          "typeLinkxcl": null
+        },
+        "22": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "(2017 ANSI/BOMA Z65.1)",
+          "typeLinkxcl": null
+        },
+        "23": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "(2017 ANSI/BOMA Z65.1)",
+          "typeLinkxcl": null
+        },
+        "24": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "(2017 ANSI/BOMA Z65.1)",
+          "typeLinkxcl": null
+        },
+        "25": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "(2017 ANSI/BOMA Z65.1)",
+          "typeLinkxcl": null
+        },
+        "19": {
+          "type": "Retail",
+          "bomaMeasurementAsPerLease": "(2017 ANSI/BOMA Z65.1)",
+          "typeLinkxcl": null
+        },
+        "5765": {
+          "type": "Restaurant Class 1",
+          "bomaMeasurementAsPerLease": "(2017 ANSI/BOMA Z65.1)",
+          "typeLinkxcl": null
+        },
+        "5764": {
+          "type": "Retail",
+          "bomaMeasurementAsPerLease": "(2017 ANSI/BOMA Z65.1)",
+          "typeLinkxcl": null
+        },
+        "37099": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "(2017 ANSI/BOMA Z65.1)",
+          "typeLinkxcl": null
+        },
+        "20": {
+          "type": "Retail",
+          "bomaMeasurementAsPerLease": "(2017 ANSI/BOMA Z65.1)",
+          "typeLinkxcl": null
+        },
+        "6891": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "(2017 ANSI/BOMA Z65.1)",
+          "typeLinkxcl": null
+        },
+        "18": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "(2017 ANSI/BOMA Z65.1)",
+          "typeLinkxcl": null
+        },
+        "16": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "(2017 ANSI/BOMA Z65.1)",
+          "typeLinkxcl": null
+        },
+        "17": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "(2017 ANSI/BOMA Z65.1)",
+          "typeLinkxcl": null
+        },
+        "15": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "(2017 ANSI/BOMA Z65.1)",
+          "typeLinkxcl": null
+        },
+        "33": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "(2017 ANSI/BOMA Z65.1)",
+          "typeLinkxcl": null
+        },
+        "32": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "(2017 ANSI/BOMA Z65.1)",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "1201": {
+      "propertyId": 4,
+      "acquiredYear": 2012,
+      "acquisitionCost": 2943469.0,
+      "units": {
+        "2": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "1": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "1202": {
+      "propertyId": 5,
+      "acquiredYear": 2012,
+      "acquisitionCost": null,
+      "units": {
+        "39": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "1203": {
+      "propertyId": 6,
+      "acquiredYear": 2012,
+      "acquisitionCost": 3814921.19,
+      "units": {
+        "41": {
+          "type": "Manufacturing",
+          "bomaMeasurementAsPerLease": "Z65.1-2010",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=222449920"
+        },
+        "309": {
+          "type": "Manufacturing",
+          "bomaMeasurementAsPerLease": "Z65.1-2010",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=222449920"
+        },
+        "40": {
+          "type": "Retail",
+          "bomaMeasurementAsPerLease": "1996 ANZI/BOMA Z65.1",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=62194519"
+        },
+        "308": {
+          "type": "Retail Group E",
+          "bomaMeasurementAsPerLease": "1996 ANZI/BOMA Z65.1",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "1204": {
+      "propertyId": 7,
+      "acquiredYear": 2012,
+      "acquisitionCost": 657819.64,
+      "units": {
+        "36": {
+          "type": "Bakery with Ancillary Retail",
+          "bomaMeasurementAsPerLease": "1996 ANZI/BOMA Z65.1",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=63490397"
+        },
+        "35": {
+          "type": "Bakery with Ancillary Retail",
+          "bomaMeasurementAsPerLease": "1996 ANZI/BOMA Z65.1",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=63490397"
+        }
+      }
+    },
+    "1205": {
+      "propertyId": 8,
+      "acquiredYear": 2012,
+      "acquisitionCost": 2522704.24,
+      "units": {
+        "43": {
+          "type": "Office, Group D Occupancy",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": "../../../../Properties/1205%20-%20120%20East%20Broadway/05%20-%20Leasing/03%20-%20Tenants%20Current/Perry%20&%20Associates/TI/OccupancyPermit%20(5).pdf"
+        },
+        "42": {
+          "type": "Retail, Group E Occupancy",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=39127710"
+        }
+      }
+    },
+    "1206": {
+      "propertyId": 9,
+      "acquiredYear": 2012,
+      "acquisitionCost": null,
+      "units": {
+        "45": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "46": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "44": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "47": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "1207": {
+      "propertyId": 10,
+      "acquiredYear": 2012,
+      "acquisitionCost": null,
+      "units": {
+        "50": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "51": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "52": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "49": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "48": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "1208": {
+      "propertyId": 11,
+      "acquiredYear": 2012,
+      "acquisitionCost": 5758430.62,
+      "units": {
+        "56": {
+          "type": "Office - Group D",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=196073723"
+        },
+        "55": {
+          "type": "Retail - Group E",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=55263485"
+        },
+        "54": {
+          "type": "Retail - Group E",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=55263485"
+        },
+        "53": {
+          "type": "Retail - Group E",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=55263485"
+        }
+      }
+    },
+    "1209": {
+      "propertyId": 12,
+      "acquiredYear": 2012,
+      "acquisitionCost": 8554754.32,
+      "units": {
+        "59": {
+          "type": "Manufacturing, Group F, Div. 2 Occupancy",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": "../../../../Properties/1209%20-%201010%20Raymur%20Avenue%20-%20900%20Parker/02%20-%20Financing/02%20-%20Financing%20Due%20Diligence/Pinchin/July%2013/1010%20Raymur%20Occupany%20Permit%20(1).pdf"
+        },
+        "58": {
+          "type": "Manufacturing, Group F, Div. 2 Occupancy",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": "../../../../Properties/1209%20-%201010%20Raymur%20Avenue%20-%20900%20Parker/02%20-%20Financing/02%20-%20Financing%20Due%20Diligence/Pinchin/July%2013/1010%20Raymur%20Occupany%20Permit%20(1).pdf"
+        },
+        "57": {
+          "type": "Manufacturing, Group F, Div. 2 Occupancy",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": "../../../../Properties/1209%20-%201010%20Raymur%20Avenue%20-%20900%20Parker/02%20-%20Financing/02%20-%20Financing%20Due%20Diligence/Pinchin/July%2013/1010%20Raymur%20Occupany%20Permit%20(1).pdf"
+        }
+      }
+    },
+    "1210": {
+      "propertyId": 13,
+      "acquiredYear": 2012,
+      "acquisitionCost": null,
+      "units": {
+        "63": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "62": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "61": {
+          "type": "Service Restaurant Class 1",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=39126114"
+        },
+        "60": {
+          "type": "Service Restaurant Class 1",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=39126114"
+        }
+      }
+    },
+    "1211": {
+      "propertyId": 14,
+      "acquiredYear": 2012,
+      "acquisitionCost": 4651438.21,
+      "units": {
+        "67": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=80404054"
+        },
+        "66": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "65": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=43106419"
+        },
+        "64": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "268": {
+          "type": "Institutional",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=50854453"
+        }
+      }
+    },
+    "1212": {
+      "propertyId": 15,
+      "acquiredYear": 2012,
+      "acquisitionCost": 7079765.87,
+      "units": {
+        "73": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "72": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "71": {
+          "type": "Service Restaurant Class 1",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "69": {
+          "type": "Cultural and Recreational Fitness",
+          "bomaMeasurementAsPerLease": "BOMA 2017",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=50992498"
+        },
+        "70": {
+          "type": "Service Restaurant Class 1",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "68": {
+          "type": "Cultural and Recreational Fitness",
+          "bomaMeasurementAsPerLease": "BOMA 2017",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=50992498"
+        }
+      }
+    },
+    "1213": {
+      "propertyId": 16,
+      "acquiredYear": 2012,
+      "acquisitionCost": 3163547.58,
+      "units": {
+        "76": {
+          "type": "Meta Products Manufacturing",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=47825981"
+        },
+        "75": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "74": {
+          "type": "Meta Products Manufacturing",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=47825981"
+        }
+      }
+    },
+    "1301": {
+      "propertyId": 18,
+      "acquiredYear": 2013,
+      "acquisitionCost": 15702246.08,
+      "units": {
+        "109": {
+          "type": "General/Health Care Office",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=227926383"
+        },
+        "108": {
+          "type": "General/Health Care Office",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=227926383"
+        },
+        "107": {
+          "type": "General/Health Care Office",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=227926383"
+        },
+        "106": {
+          "type": "General/Health Care Office",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=227926383"
+        }
+      }
+    },
+    "1302": {
+      "propertyId": 19,
+      "acquiredYear": 2013,
+      "acquisitionCost": 7497112.11,
+      "units": {
+        "78": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "82": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "83": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "84": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "77": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "81": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "80": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "79": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "1303": {
+      "propertyId": 43,
+      "acquiredYear": 2013,
+      "acquisitionCost": 6747897.38,
+      "units": {
+        "259": {
+          "type": "Retail",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "260": {
+          "type": "Retail",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "267": {
+          "type": "Service - Beauty Salon",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "../../../../Properties/1303%20-%20166%20East%2011th/05%20-%20Leasing/03%20-%20Tenants%20Current/Commercial/Stone%20Fox%20Hair/TI/Stone%20Fox%20-%20OccupancyPermit%20(17).pdf"
+        },
+        "262": {
+          "type": "Service - Beauty Salon",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "../../../../Properties/1303%20-%20166%20East%2011th/05%20-%20Leasing/03%20-%20Tenants%20Current/Commercial/Stone%20Fox%20Hair/TI/Stone%20Fox%20-%20OccupancyPermit%20(17).pdf"
+        },
+        "380": {
+          "type": "Retail",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "../../../../Properties/1303%20-%20166%20East%2011th/03%20-%20Development/02%20-%20Municipal%20and%20Government/OccupancyPermit%20-%20Main%20St.%20Units.pdf"
+        },
+        "263": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 2010",
+          "typeLinkxcl": "../../../../Properties/1303%20-%20166%20East%2011th/03%20-%20Development/02%20-%20Municipal%20and%20Government/OccupancyPermit%20-%20Main%20St.%20Units.pdf"
+        },
+        "261": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "264": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "318": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "1304": {
+      "propertyId": 21,
+      "acquiredYear": 2013,
+      "acquisitionCost": 32660866.71,
+      "units": {
+        "104": {
+          "type": "Laboratory",
+          "bomaMeasurementAsPerLease": "BOMA 2010",
+          "typeLinkxcl": null
+        },
+        "94": {
+          "type": "TBD",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "95": {
+          "type": "TBD",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "96": {
+          "type": "TBD",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "97": {
+          "type": "Laboratory, Office",
+          "bomaMeasurementAsPerLease": "BOMA 2010",
+          "typeLinkxcl": null
+        },
+        "98": {
+          "type": "TBD",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "99": {
+          "type": "TBD",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "100": {
+          "type": "TBD",
+          "bomaMeasurementAsPerLease": "BOMA 2010",
+          "typeLinkxcl": null
+        },
+        "101": {
+          "type": "TBD",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "102": {
+          "type": "TBD",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "103": {
+          "type": "TBD",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "89": {
+          "type": "TBD",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "90": {
+          "type": "TBD",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "91": {
+          "type": "TBD",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "92": {
+          "type": "Office, Group D Occupancy",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "93": {
+          "type": "Office, Group D Occupancy",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "88": {
+          "type": "Office, Group D Occupancy",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "28818": {
+          "type": "TBD",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "85": {
+          "type": "TBD",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "86": {
+          "type": "TBD",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "87": {
+          "type": "TBD",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "265": {
+          "type": "TBD",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "244": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "245": {
+          "type": "TBD",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "248": {
+          "type": "TBD",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "249": {
+          "type": "TBD",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "246": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "247": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "253": {
+          "type": "TBD",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "254": {
+          "type": "TBD",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "250": {
+          "type": "TBD",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "251": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "252": {
+          "type": "TBD",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "1305": {
+      "propertyId": 22,
+      "acquiredYear": 2013,
+      "acquisitionCost": 1945273.01,
+      "units": {
+        "403": {
+          "type": "Flour Milling with Ancillary Retail",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=154604603"
+        },
+        "110": {
+          "type": "Retail",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "402": {
+          "type": "Retail",
+          "bomaMeasurementAsPerLease": "BOMA 2010",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "1306": {
+      "propertyId": 23,
+      "acquiredYear": 2013,
+      "acquisitionCost": 6442542.42,
+      "units": {
+        "145": {
+          "type": "Office, Group D Occupancy",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "../../../../Properties/1306%20-%20877%20East%20Hastings/05%20-%20Leasing/01-%20Measurements%20and%20Floor%20Plans/877%20E%20Hastings%20St%20-%20Approved%20Use%20Letter%20-%20UPDATED%20June%2010th,%202024.pdf"
+        },
+        "146": {
+          "type": "Office, Group D Occupancy",
+          "bomaMeasurementAsPerLease": "BOMA 2017",
+          "typeLinkxcl": "../../../../Properties/1306%20-%20877%20East%20Hastings/05%20-%20Leasing/01-%20Measurements%20and%20Floor%20Plans/877%20E%20Hastings%20St%20-%20Approved%20Use%20Letter%20-%20UPDATED%20June%2010th,%202024.pdf"
+        },
+        "147": {
+          "type": "Office, Group D Occupancy",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": "../../../../Properties/1306%20-%20877%20East%20Hastings/05%20-%20Leasing/01-%20Measurements%20and%20Floor%20Plans/877%20E%20Hastings%20St%20-%20Approved%20Use%20Letter%20-%20UPDATED%20June%2010th,%202024.pdf"
+        },
+        "149": {
+          "type": "Office, Group D Occupancy",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": "../../../../Properties/1306%20-%20877%20East%20Hastings/05%20-%20Leasing/01-%20Measurements%20and%20Floor%20Plans/877%20E%20Hastings%20St%20-%20Approved%20Use%20Letter%20-%20UPDATED%20June%2010th,%202024.pdf"
+        },
+        "148": {
+          "type": "Office, Group D Occupancy",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": "../../../../Properties/1306%20-%20877%20East%20Hastings/05%20-%20Leasing/01-%20Measurements%20and%20Floor%20Plans/877%20E%20Hastings%20St%20-%20Approved%20Use%20Letter%20-%20UPDATED%20June%2010th,%202024.pdf"
+        },
+        "138": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": "../../../../Properties/1306%20-%20877%20East%20Hastings/05%20-%20Leasing/01-%20Measurements%20and%20Floor%20Plans/877%20E%20Hastings%20St%20-%20Approved%20Use%20Letter%20-%20UPDATED%20June%2010th,%202024.pdf"
+        },
+        "140": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "../../../../Properties/1306%20-%20877%20East%20Hastings/05%20-%20Leasing/01-%20Measurements%20and%20Floor%20Plans/877%20E%20Hastings%20St%20-%20Approved%20Use%20Letter%20-%20UPDATED%20June%2010th,%202024.pdf"
+        },
+        "141": {
+          "type": "Jewelry Manufacturing",
+          "bomaMeasurementAsPerLease": "BOMA 2017",
+          "typeLinkxcl": "../../../../Properties/1306%20-%20877%20East%20Hastings/05%20-%20Leasing/01-%20Measurements%20and%20Floor%20Plans/877%20E%20Hastings%20St%20-%20Approved%20Use%20Letter%20-%20UPDATED%20June%2010th,%202024.pdf"
+        },
+        "142": {
+          "type": "Office, Group D Occupancy",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": "../../../../Properties/1306%20-%20877%20East%20Hastings/05%20-%20Leasing/01-%20Measurements%20and%20Floor%20Plans/877%20E%20Hastings%20St%20-%20Approved%20Use%20Letter%20-%20UPDATED%20June%2010th,%202024.pdf"
+        },
+        "143": {
+          "type": "Institutional",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": "../../../../Properties/1306%20-%20877%20East%20Hastings/05%20-%20Leasing/01-%20Measurements%20and%20Floor%20Plans/877%20E%20Hastings%20St%20-%20Approved%20Use%20Letter%20-%20UPDATED%20June%2010th,%202024.pdf"
+        },
+        "144": {
+          "type": "Institutional",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": "../../../../Properties/1306%20-%20877%20East%20Hastings/05%20-%20Leasing/01-%20Measurements%20and%20Floor%20Plans/877%20E%20Hastings%20St%20-%20Approved%20Use%20Letter%20-%20UPDATED%20June%2010th,%202024.pdf"
+        },
+        "32154": {
+          "type": "Manufacturing",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": "../../../../Properties/1306%20-%20877%20East%20Hastings/05%20-%20Leasing/01-%20Measurements%20and%20Floor%20Plans/877%20E%20Hastings%20St%20-%20Approved%20Use%20Letter%20-%20UPDATED%20June%2010th,%202024.pdf"
+        },
+        "32155": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "133": {
+          "type": "Manufacturing",
+          "bomaMeasurementAsPerLease": "BOMA 2017",
+          "typeLinkxcl": "../../../../Properties/1306%20-%20877%20East%20Hastings/05%20-%20Leasing/01-%20Measurements%20and%20Floor%20Plans/877%20E%20Hastings%20St%20-%20Approved%20Use%20Letter%20-%20UPDATED%20June%2010th,%202024.pdf"
+        },
+        "134": {
+          "type": "Barber/Beauty Salon",
+          "bomaMeasurementAsPerLease": "BOMA 2010",
+          "typeLinkxcl": "../../../../Properties/1306%20-%20877%20East%20Hastings/05%20-%20Leasing/01-%20Measurements%20and%20Floor%20Plans/877%20E%20Hastings%20St%20-%20Approved%20Use%20Letter%20-%20UPDATED%20June%2010th,%202024.pdf"
+        },
+        "135": {
+          "type": "Manufacturing",
+          "bomaMeasurementAsPerLease": "BOMA 2017",
+          "typeLinkxcl": "../../../../Properties/1306%20-%20877%20East%20Hastings/05%20-%20Leasing/01-%20Measurements%20and%20Floor%20Plans/877%20E%20Hastings%20St%20-%20Approved%20Use%20Letter%20-%20UPDATED%20June%2010th,%202024.pdf"
+        },
+        "136": {
+          "type": "Manufacturing",
+          "bomaMeasurementAsPerLease": "BOMA 2020",
+          "typeLinkxcl": "../../../../Properties/1306%20-%20877%20East%20Hastings/05%20-%20Leasing/01-%20Measurements%20and%20Floor%20Plans/877%20E%20Hastings%20St%20-%20Approved%20Use%20Letter%20-%20UPDATED%20June%2010th,%202024.pdf"
+        },
+        "137": {
+          "type": "Retail, Limited Food Service",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "../../../../Properties/1306%20-%20877%20East%20Hastings/05%20-%20Leasing/01-%20Measurements%20and%20Floor%20Plans/877%20E%20Hastings%20St%20-%20Approved%20Use%20Letter%20-%20UPDATED%20June%2010th,%202024.pdf"
+        }
+      }
+    },
+    "1307": {
+      "propertyId": 24,
+      "acquiredYear": 2013,
+      "acquisitionCost": 2591825.91,
+      "units": {
+        "132": {
+          "type": "Brewery with Tasting Lounge",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=130109725"
+        }
+      }
+    },
+    "1401": {
+      "propertyId": 25,
+      "acquiredYear": 2014,
+      "acquisitionCost": 30730855.81,
+      "units": {
+        "131": {
+          "type": "Commercial",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": "../../../../Properties/1401%20-%201618%20Station/05%20-%20Leasing/03%20-%20Tenants%20Current/Stemcell/Tenant%20Improvements/1618%20Station%20St%20-%20Occupancy%20Permits.pdf"
+        },
+        "130": {
+          "type": "Commercial",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": "../../../../Properties/1401%20-%201618%20Station/05%20-%20Leasing/03%20-%20Tenants%20Current/Stemcell/Tenant%20Improvements/1618%20Station%20St%20-%20Occupancy%20Permits.pdf"
+        },
+        "129": {
+          "type": "Commercial",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": "../../../../Properties/1401%20-%201618%20Station/05%20-%20Leasing/03%20-%20Tenants%20Current/Stemcell/Tenant%20Improvements/1618%20Station%20St%20-%20Occupancy%20Permits.pdf"
+        },
+        "128": {
+          "type": "Commercial",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": "../../../../Properties/1401%20-%201618%20Station/05%20-%20Leasing/03%20-%20Tenants%20Current/Stemcell/Tenant%20Improvements/1618%20Station%20St%20-%20Occupancy%20Permits.pdf"
+        },
+        "127": {
+          "type": "Commercial",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": "../../../../Properties/1401%20-%201618%20Station/05%20-%20Leasing/03%20-%20Tenants%20Current/Stemcell/Tenant%20Improvements/1618%20Station%20St%20-%20Occupancy%20Permits.pdf"
+        }
+      }
+    },
+    "1402": {
+      "propertyId": 26,
+      "acquiredYear": 2014,
+      "acquisitionCost": 4542425.82,
+      "units": {
+        "35740": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "35741": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "1404": {
+      "propertyId": 28,
+      "acquiredYear": 2014,
+      "acquisitionCost": 14364955.12,
+      "units": {
+        "258": {
+          "type": "TBD",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "256": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "257": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "255": {
+          "type": "TBD",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "1405": {
+      "propertyId": 29,
+      "acquiredYear": 2014,
+      "acquisitionCost": 6403647.63,
+      "units": {
+        "126": {
+          "type": "Manufacturing, Group F, Div. 2",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=63490397"
+        },
+        "125": {
+          "type": "Wholesale, Class A",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=63490397"
+        }
+      }
+    },
+    "1501": {
+      "propertyId": 30,
+      "acquiredYear": 2015,
+      "acquisitionCost": 3343809.47,
+      "units": {
+        "124": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "123": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "1502": {
+      "propertyId": 31,
+      "acquiredYear": 2015,
+      "acquisitionCost": 7236129.96,
+      "units": {
+        "122": {
+          "type": "Wholesale, Class A, F2 Occupancy",
+          "bomaMeasurementAsPerLease": "BOMA 2017",
+          "typeLinkxcl": "../../../../Properties/1502%20-%201638%20West%203rd/05%20-%20Leasing/03%20-%20Tenants%20Current/Obakki/Correspondence/Occupancy%20Permit%202023.pdf"
+        },
+        "121": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "BOMA 2017",
+          "typeLinkxcl": null
+        },
+        "120": {
+          "type": "Retail, Group E Occupancy",
+          "bomaMeasurementAsPerLease": "BOMA 2017",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=172917260"
+        }
+      }
+    },
+    "1503": {
+      "propertyId": 32,
+      "acquiredYear": 2015,
+      "acquisitionCost": 25025306.04,
+      "units": {
+        "163": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 2017",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=212621364"
+        },
+        "157": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 2017",
+          "typeLinkxcl": null
+        },
+        "158": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 2017",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=212621364"
+        },
+        "159": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 2017",
+          "typeLinkxcl": null
+        },
+        "160": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 2017",
+          "typeLinkxcl": null
+        },
+        "37007": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "BOMA 2017",
+          "typeLinkxcl": null
+        },
+        "162": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 2017",
+          "typeLinkxcl": null
+        },
+        "161": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 2017",
+          "typeLinkxcl": null
+        },
+        "153": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 2017",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=212621364"
+        },
+        "33602": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 2017",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=212621364"
+        },
+        "154": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 2017",
+          "typeLinkxcl": null
+        },
+        "155": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 2017",
+          "typeLinkxcl": null
+        },
+        "156": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 2017",
+          "typeLinkxcl": null
+        },
+        "151": {
+          "type": "Service Restaurant Class 1",
+          "bomaMeasurementAsPerLease": "BOMA 2017",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=52611684"
+        },
+        "152": {
+          "type": "Service Restaurant Class 2",
+          "bomaMeasurementAsPerLease": "BOMA 2017",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=52611684"
+        },
+        "150": {
+          "type": "Service Restaurant Class 2",
+          "bomaMeasurementAsPerLease": "BOMA 2017",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=52611684"
+        },
+        "266": {
+          "type": "Storage",
+          "bomaMeasurementAsPerLease": "BOMA 2017",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "1504": {
+      "propertyId": 45,
+      "acquiredYear": 2015,
+      "acquisitionCost": null,
+      "units": {
+        "167": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "168": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "1505": {
+      "propertyId": 47,
+      "acquiredYear": 2015,
+      "acquisitionCost": 15593728.86,
+      "units": {
+        "165": {
+          "type": "Service, Limited Food Retail",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "../../../../Properties/1505%20-%20708%20East%2026th/03%20-%20Development/02%20-%20Municipal%20and%20Government/Permits/Occupancy%20Permit.pdf"
+        },
+        "166": {
+          "type": "Health Care Office, Group D Occupancy",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "../../../../Properties/1505%20-%20708%20East%2026th/03%20-%20Development/02%20-%20Municipal%20and%20Government/Permits/Occupancy%20Permit.pdf"
+        }
+      }
+    },
+    "1506": {
+      "propertyId": 35,
+      "acquiredYear": 2015,
+      "acquisitionCost": null,
+      "units": {
+        "105": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "1507": {
+      "propertyId": 36,
+      "acquiredYear": 2015,
+      "acquisitionCost": 4693768.38,
+      "units": {
+        "401": {
+          "type": "-",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "111": {
+          "type": "-",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "307": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "1508": {
+      "propertyId": 37,
+      "acquiredYear": 2015,
+      "acquisitionCost": 0.0,
+      "units": {
+        "119": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "1509": {
+      "propertyId": 38,
+      "acquiredYear": 2015,
+      "acquisitionCost": 2737958.9,
+      "units": {
+        "118": {
+          "type": "Vehicle Dealer",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=39128376"
+        }
+      }
+    },
+    "1601": {
+      "propertyId": 39,
+      "acquiredYear": 2016,
+      "acquisitionCost": 10031116.58,
+      "units": {
+        "115": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "114": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "37098": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "117": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "116": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "113": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "112": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "1602": {
+      "propertyId": 117,
+      "acquiredYear": 2016,
+      "acquisitionCost": 87551063.09,
+      "units": {
+        "368": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "../../../../Properties/1602%20-%20887%20GNW/05%20-%20Leasing/03%20-%20Tenants%20Current/Notch%20Therapeutics/Tenant%20Improvements/OccupancyPermit%20(40).pdf"
+        },
+        "364": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "../../../../Properties/1602%20-%20887%20GNW/05%20-%20Leasing/03%20-%20Tenants%20Current/MEC%20Canada%20Inc/Tenant%20Improvement/OccupancyPermit%20(16).pdf"
+        },
+        "365": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "366": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "367": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "360": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "../../../../Properties/1602%20-%20887%20GNW/05%20-%20Leasing/03%20-%20Tenants%20Current/MEC%20Canada%20Inc/Tenant%20Improvement/OccupancyPermit%20(16).pdf"
+        },
+        "361": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "../../../../Properties/1602%20-%20887%20GNW/05%20-%20Leasing/03%20-%20Tenants%20Current/MEC%20Canada%20Inc/Tenant%20Improvement/OccupancyPermit%20(16).pdf"
+        },
+        "362": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "../../../../Properties/1602%20-%20887%20GNW/05%20-%20Leasing/03%20-%20Tenants%20Current/MEC%20Canada%20Inc/Tenant%20Improvement/OccupancyPermit%20(16).pdf"
+        },
+        "363": {
+          "type": "Service, Laboratory and Office",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "../../../../Properties/1602%20-%20887%20GNW/05%20-%20Leasing/03%20-%20Tenants%20Current/Notch%20Therapeutics/Tenant%20Improvements/OccupancyPermit%20(40).pdf"
+        },
+        "354": {
+          "type": "Laboratory",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "../../../../Properties/1602%20-%20887%20GNW/05%20-%20Leasing/03%20-%20Tenants%20Current/MEC%20Canada%20Inc/Tenant%20Improvement/OccupancyPermit%20(16).pdf"
+        },
+        "355": {
+          "type": "Service, Laboratory",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "../../../../Properties/1602%20-%20887%20GNW/03%20-%20Development/z887%20From%20Development/3%20-%20Municipal%20and%20Government/06%20-%20Building%20Permit/OccupancyPermit"
+        },
+        "356": {
+          "type": "Laboratory",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "357": {
+          "type": "Service, Laboratory, Office",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "358": {
+          "type": "Service, Laboratory, Office",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "359": {
+          "type": "Service, Laboratory, Office",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "373": {
+          "type": "Service, Laboratory, Office",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "351": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": "../../../../Properties/1602%20-%20887%20GNW/05%20-%20Leasing/03%20-%20Tenants%20Current/MEC%20Canada%20Inc/Tenant%20Improvement/OccupancyPermit%20(16).pdf"
+        },
+        "37414": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "353": {
+          "type": "Office and Service, Laboratory",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "352": {
+          "type": "Ancillary Office and Service, Laboratory",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "371": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "370": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "369": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "378": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "381": {
+          "type": "Retail",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "382": {
+          "type": "Retail",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "383": {
+          "type": "Retail",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "389": {
+          "type": "Retail",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "390": {
+          "type": "Retail",
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "400": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "372": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        },
+        "379": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "BOMA 1996",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "1603": {
+      "propertyId": 79,
+      "acquiredYear": 2016,
+      "acquisitionCost": 12974152.19,
+      "units": {
+        "314": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 2010",
+          "typeLinkxcl": "../../../../Properties/1603%20-%20565%20GNW/03%20-%20Development/1603%20-%20565%20Great%20Northern%20Way/03%20Municipal%20and%20Government/07%20Occupancy%20Permit/Samsung%20OccupancyPermit%20-%202019-05-07T155107.010.pdf"
+        },
+        "313": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 2010",
+          "typeLinkxcl": "../../../../Properties/1603%20-%20565%20GNW/03%20-%20Development/1603%20-%20565%20Great%20Northern%20Way/03%20Municipal%20and%20Government/07%20Occupancy%20Permit/AxionZen%20OccupancyPermit_20190522.pdf"
+        },
+        "312": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA",
+          "typeLinkxcl": null
+        },
+        "306": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 2010",
+          "typeLinkxcl": "../../../../Properties/1603%20-%20565%20GNW/03%20-%20Development/1603%20-%20565%20Great%20Northern%20Way/03%20Municipal%20and%20Government/07%20Occupancy%20Permit/Blackbird%20OccupancyPermit%20(56).pdf"
+        },
+        "305": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 2010",
+          "typeLinkxcl": "../../../../Properties/1603%20-%20565%20GNW/03%20-%20Development/1603%20-%20565%20Great%20Northern%20Way/03%20Municipal%20and%20Government/07%20Occupancy%20Permit/Finning%20Occupancy%20Permit%20(4).pdf"
+        },
+        "311": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 2010",
+          "typeLinkxcl": "../../../../Properties/1603%20-%20565%20GNW/03%20-%20Development/1603%20-%20565%20Great%20Northern%20Way/11%20Leasing%20Marketing/02%20Office%20Tenants/Spaces/01%20Permits/OccupancyPermit%20-%202020-05-07T084242.130.pdf"
+        },
+        "317": {
+          "type": "Retail, Restaurant Class 1",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "310": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA 2010",
+          "typeLinkxcl": "../../../../Properties/1603%20-%20565%20GNW/03%20-%20Development/1603%20-%20565%20Great%20Northern%20Way/11%20Leasing%20Marketing/02%20Office%20Tenants/Spaces/01%20Permits/OccupancyPermit%20-%202020-05-07T084242.130.pdf"
+        },
+        "334": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "335": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "336": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "404": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "1049": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "405": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "315": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "333": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "326": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "316": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "330": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "331": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "327": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "328": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "1604": {
+      "propertyId": 64,
+      "acquiredYear": 2016,
+      "acquisitionCost": 34015519.26,
+      "units": {
+        "337": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null,
+          "tenancy": {
+            "tenant": "Tesla Motors Canada ULC",
+            "tenantID": 2354,
+            "currentAmendmentId": 55624,
+            "currentAmendmentType": "Renewal",
+            "currentAmendmentLeaseFrom": "2024-08-01 0:00",
+            "currentAmendmentLeaseTo": "2029-07-31 0:00",
+            "leaseExpiry": "2029-07-31 0:00"
+          }
+        },
+        "338": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null,
+          "tenancy": {
+            "tenant": "Tesla Motors Canada ULC",
+            "tenantID": 2354,
+            "currentAmendmentId": 55624,
+            "currentAmendmentType": "Renewal",
+            "currentAmendmentLeaseFrom": "2024-08-01 0:00",
+            "currentAmendmentLeaseTo": "2029-07-31 0:00",
+            "leaseExpiry": "2029-07-31 0:00"
+          }
+        }
+      }
+    },
+    "1701": {
+      "propertyId": 68,
+      "acquiredYear": 2017,
+      "acquisitionCost": 0.0,
+      "units": {
+        "301": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "302": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "300": {
+          "type": "Service, Limited Food Retail",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": "../../../../Properties/1701%20-%20727%20East%2017th/02%20-%20Financing/02%20-%20Financing%20Due%20Diligence/Documents%20Requested%20by%20RealTech/Occupancy%20Permit.pdf"
+        }
+      }
+    },
+    "1702": {
+      "propertyId": 72,
+      "acquiredYear": 2017,
+      "acquisitionCost": 16732644.09,
+      "units": {
+        "303": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "304": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "1704": {
+      "propertyId": 153,
+      "acquiredYear": 2017,
+      "acquisitionCost": 59004103.86,
+      "units": {
+        "398": {
+          "type": "Office - Group D",
+          "bomaMeasurementAsPerLease": "BOMA 2017 (Office)",
+          "typeLinkxcl": "../../../../Properties/1704%20-%20155%20Water%20Street/03%20-%20Development/1704%20-%20155%20Water%20Street/11%20Leasing%20Marketing/02%20Office%20Tenants/Microsoft/OccupancyPermit%20(14).pdf"
+        },
+        "397": {
+          "type": "Office - Group D",
+          "bomaMeasurementAsPerLease": "BOMA 2017 (Office)",
+          "typeLinkxcl": "../../../../Properties/1704%20-%20155%20Water%20Street/03%20-%20Development/1704%20-%20155%20Water%20Street/11%20Leasing%20Marketing/02%20Office%20Tenants/Microsoft/OccupancyPermit%20(14).pdf"
+        },
+        "396": {
+          "type": "Office - Group D",
+          "bomaMeasurementAsPerLease": "BOMA 2017 (Office)",
+          "typeLinkxcl": "../../../../Properties/1704%20-%20155%20Water%20Street/03%20-%20Development/1704%20-%20155%20Water%20Street/11%20Leasing%20Marketing/02%20Office%20Tenants/Microsoft/OccupancyPermit%20(14).pdf"
+        },
+        "395": {
+          "type": "Office - Group D",
+          "bomaMeasurementAsPerLease": "BOMA 2017 (Office)",
+          "typeLinkxcl": "../../../../Properties/1704%20-%20155%20Water%20Street/03%20-%20Development/1704%20-%20155%20Water%20Street/11%20Leasing%20Marketing/02%20Office%20Tenants/Microsoft/OccupancyPermit%20(14).pdf"
+        },
+        "394": {
+          "type": "Office - Group D",
+          "bomaMeasurementAsPerLease": "BOMA 2017 (Office)",
+          "typeLinkxcl": "../../../../Properties/1704%20-%20155%20Water%20Street/03%20-%20Development/1704%20-%20155%20Water%20Street/11%20Leasing%20Marketing/02%20Office%20Tenants/Microsoft/OccupancyPermit%20(14).pdf"
+        },
+        "393": {
+          "type": "Office - Group D",
+          "bomaMeasurementAsPerLease": "BOMA 2017 (Office)",
+          "typeLinkxcl": "../../../../Properties/1704%20-%20155%20Water%20Street/03%20-%20Development/1704%20-%20155%20Water%20Street/11%20Leasing%20Marketing/02%20Office%20Tenants/Microsoft/OccupancyPermit%20(14).pdf"
+        },
+        "391": {
+          "type": "Retail",
+          "bomaMeasurementAsPerLease": "BOMA 2017 (Office)",
+          "typeLinkxcl": "../../../../Properties/1704%20-%20155%20Water%20Street/05%20-%20Leasing/03%20-%20Tenants%20Current/Oak%20+%20Fort/TI%20Allowance/220915_151_OccupancyPermit.pdf"
+        },
+        "392": {
+          "type": "Retail",
+          "bomaMeasurementAsPerLease": "BOMA 2017 (Office)",
+          "typeLinkxcl": "../../../../Properties/1704%20-%20155%20Water%20Street/05%20-%20Leasing/03%20-%20Tenants%20Current/Maison%20Kitsune/TI%20Allowance/OccupancyPermit%20(28).pdf"
+        }
+      }
+    },
+    "1801": {
+      "propertyId": 105,
+      "acquiredYear": 2018,
+      "acquisitionCost": 31776842.1,
+      "units": {
+        "320": {
+          "type": "Retail, Limited Food",
+          "bomaMeasurementAsPerLease": "BOMA 1996 (Retail)",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=171409228"
+        },
+        "321": {
+          "type": "Retail",
+          "bomaMeasurementAsPerLease": "BOMA 2020 (Retail)",
+          "typeLinkxcl": null
+        },
+        "322": {
+          "type": "Retail, Group E",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=74883267"
+        },
+        "323": {
+          "type": "Retail",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "324": {
+          "type": "Retail",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "325": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "1802": {
+      "propertyId": 104,
+      "acquiredYear": 2018,
+      "acquisitionCost": 1871204.61,
+      "units": {
+        "374": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "1803": {
+      "propertyId": 110,
+      "acquiredYear": 2018,
+      "acquisitionCost": 5643932.39,
+      "units": {
+        "961": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "962": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "1901": {
+      "propertyId": 139,
+      "acquiredYear": 2019,
+      "acquisitionCost": 6690096.72,
+      "units": {
+        "377": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "BOMA 2017 (Office)",
+          "typeLinkxcl": null
+        },
+        "376": {
+          "type": "Club/Office, A2 Occupancy",
+          "bomaMeasurementAsPerLease": "BOMA 2017 (Office)",
+          "typeLinkxcl": "../../../../Properties/1901%20-%207%20West%207th/05%20-%20Leasing/04%20-%20Tenants%20Ex/The%20Eagles%20Club/FOE%20-%20Suite%20200%20Occupancy%20Permit.pdf"
+        },
+        "375": {
+          "type": "Manufacturing, Class A, Group D Occupancy",
+          "bomaMeasurementAsPerLease": "BOMA 2017 (Office)",
+          "typeLinkxcl": "https://plposweb.vancouver.ca/Public/Default.aspx?PossePresentation=Guest&PosseObjectId=98869699"
+        }
+      }
+    },
+    "1902": {
+      "propertyId": 147,
+      "acquiredYear": 2019,
+      "acquisitionCost": 5342607.42,
+      "units": {
+        "387": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "388": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "386": {
+          "type": "Retail",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "385": {
+          "type": "Retail",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "2101": {
+      "propertyId": 160,
+      "acquiredYear": 2021,
+      "acquisitionCost": 106285156.61,
+      "units": {
+        "1378": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "409": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "408": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "1377": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "1380": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "1379": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "2102": {
+      "propertyId": 285,
+      "acquiredYear": 2021,
+      "acquisitionCost": 121051701.7,
+      "units": {
+        "3020": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "3021": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "2201": {
+      "propertyId": 421,
+      "acquiredYear": 2022,
+      "acquisitionCost": 5281043.13,
+      "units": {
+        "10417": {
+          "type": "Retail",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "2202": {
+      "propertyId": 422,
+      "acquiredYear": 2022,
+      "acquisitionCost": 5283448.13,
+      "units": {
+        "10418": {
+          "type": "Retail",
+          "bomaMeasurementAsPerLease": "ANSI/BOMA Z65.5 - 2010)",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "2203": {
+      "propertyId": 423,
+      "acquiredYear": 2022,
+      "acquisitionCost": 5283448.13,
+      "units": {
+        "10419": {
+          "type": "Retail",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "2204": {
+      "propertyId": 424,
+      "acquiredYear": 2022,
+      "acquisitionCost": 5283448.13,
+      "units": {
+        "10420": {
+          "type": "Retail",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "2205": {
+      "propertyId": 425,
+      "acquiredYear": 2022,
+      "acquisitionCost": 5675010.62,
+      "units": {
+        "10422": {
+          "type": "Retail",
+          "bomaMeasurementAsPerLease": "BOMA SIOR 2009 Retail",
+          "typeLinkxcl": null
+        },
+        "11614": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "BOMA SIOR 2009 Retail",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "2301": {
+      "propertyId": 607,
+      "acquiredYear": 2023,
+      "acquisitionCost": 7293692.94,
+      "units": {
+        "16397": {
+          "type": "Retail",
+          "bomaMeasurementAsPerLease": "BOMA 2010 Retail",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "2302": {
+      "propertyId": 610,
+      "acquiredYear": 2023,
+      "acquisitionCost": 5802639.57,
+      "units": {
+        "16399": {
+          "type": "Retail",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "16400": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "2303": {
+      "propertyId": 611,
+      "acquiredYear": 2023,
+      "acquisitionCost": 6282603.2,
+      "units": {
+        "16401": {
+          "type": "Retail",
+          "bomaMeasurementAsPerLease": "BOMA 2010 Retail",
+          "typeLinkxcl": null
+        },
+        "16982": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "BOMA 2010 Retail",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "2304": {
+      "propertyId": 1095,
+      "acquiredYear": 2023,
+      "acquisitionCost": 10615091.69,
+      "units": {
+        "24386": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "24382": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "24381": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "24383": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "24384": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "24385": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "2305": {
+      "propertyId": 1097,
+      "acquiredYear": 2023,
+      "acquisitionCost": 1916134.75,
+      "units": {
+        "25726": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "25727": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        },
+        "25734": {
+          "type": "Office",
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        }
+      }
+    },
+    "2501": {
+      "propertyId": 1598,
+      "acquiredYear": 2025,
+      "acquisitionCost": 1922165.06,
+      "units": {
+        "32366": {
+          "type": null,
+          "bomaMeasurementAsPerLease": "?",
+          "typeLinkxcl": null
+        }
+      }
+    }
+  }
+}
