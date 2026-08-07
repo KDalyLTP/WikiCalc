@@ -28,7 +28,7 @@ From the CSV (verified 1:1 against a known-good stacking JSON, 328/328 units):
            floorSF (sum of the floor's tenantSF)
 
 From buildingOverrides.json (not derivable from the export):
-    per building : propertyId, acquiredYear, acquisitionCost
+    per building : propertyId
     per unit     : type, bomaMeasurementAsPerLease, typeLinkxcl
     per unit     : tenancy{...}  -- only for units whose tenancy is blank in the
                    CSV but live in the stack (see below)
@@ -44,6 +44,10 @@ Deliberately NOT emitted:
                     needed rather than emitting a field that is silently wrong
                     for 6 units.
     rentPSFxcl, tenantSFxcl -- manual Excel overrides, not captured anywhere.
+    acquiredYear, acquisitionCost -- building-level acquisition facts that are
+                    not stacking data. They live in a separate buildings.json
+                    maintained outside this pipeline; deliberately not emitted
+                    here so there is a single source of truth for them.
 
 
 CONVENTIONS REPRODUCED FROM THE SOURCE JSON
@@ -104,7 +108,7 @@ CSV_REQUIRED_COLUMNS = [
 # the pair, but not consistently -- 1602 and 1603 keep the "off" id while 1704
 # keeps the "ret" id -- so neither min(), max(), nor an "office wins" rule
 # reproduces all three. It is a stable per-building constant, so it is pinned.
-BUILDING_OVERRIDE_FIELDS = ["propertyId", "acquiredYear", "acquisitionCost"]
+BUILDING_OVERRIDE_FIELDS = ["propertyId"]
 
 # `type` is hand-entered free text (50 distinct values like "Service, Restaurant
 # Class 1" or "TBD"); the CSV's Unit Type Description only reproduces 181 of 328.
@@ -387,8 +391,6 @@ def build_stacking(rows: list, overrides: dict) -> dict:
                 "buildingId": building_id,
                 "propertyId": building_override.get("propertyId"),
                 "floors": floors,
-                "acquiredYear": building_override.get("acquiredYear"),
-                "acquisitionCost": building_override.get("acquisitionCost"),
             }
         )
 
