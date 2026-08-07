@@ -33,6 +33,14 @@ From buildingOverrides.json (not derivable from the export):
     per unit     : tenancy{...}  -- only for units whose tenancy is blank in the
                    CSV but live in the stack (see below)
 
+Added for the web app (not present in the original Yardi-derived JSON):
+    upcomingExpiries -- per building, every occupied unit's lease expiry on or
+                    after the export's As Of Date, sorted soonest-first, as
+                    {date, tenant, unit, unitId, leaseType}. `leaseType` is the
+                    unit's currentAmendmentType (Renewal / Original Lease /
+                    Expansion / ...). The client slices the first three for the
+                    "next lease changes" panel.
+
 Deliberately NOT emitted:
     bomaFloorSF  -- computed downstream in the SWA app. The source JSON's own
                     values are unreliable: 8 of 158 floors disagree with the sum
@@ -127,6 +135,14 @@ TENANCY_OVERRIDE_FIELDS = [
 
 DATE_FORMAT_IN = "%Y-%m-%d %H:%M"
 VACANT = "Vacant"
+
+# Per-building roll-up of lease expiries, for the web app's "upcoming lease
+# changes" panel. The full list is emitted (sorted soonest-first) rather than a
+# fixed top 3: 38 of 62 buildings have fewer than three upcoming expiries
+# anyway, and slicing client-side (.slice(0, 3)) keeps the deeper list
+# available without a rebuild.
+EXPIRIES_FIELD = "upcomingExpiries"
+AS_OF_COLUMN = "As Of Date"
 
 
 class InputValidationError(ValueError):
@@ -352,8 +368,51 @@ def _build_space(row: dict, unit_override: dict) -> dict:
     return space
 
 
+def _as_of_date(rows: list):
+    """The export's As Of Date, used to decide what counts as "upcoming".
+
+    Anchoring to the data rather than to datetime.now() keeps rebuilds
+    reproducible -- the same CSV always yields the same file."""
+    for row in rows:
+        text = _blank(row.get(AS_OF_COLUMN))
+        if text:
+            return datetime.strptime(text.split(" ")[0], "%Y-%m-%d").date()
+    return None
+
+
+def _upcoming_expiries(floors: list, as_of) -> list:
+    """Lease expiries for one building, soonest first.
+
+    Only occupied units with an expiry on/after `as_of` are included, so the
+    web app can render the next N lease changes straight off this array.
+    Sorted by (date, unit, unitId): a tie-break is required because same-day
+    expiries are common (building 1602 has four units expiring together), and
+    without one the ordering would shuffle between rebuilds and produce noisy
+    diffs."""
+    entries = []
+    for floor in floors:
+        for space in floor["spaces"]:
+            expiry = space.get("leaseExpiry")
+            if not expiry or space.get("tenant") == VACANT:
+                continue
+            date = expiry.split(" ")[0]
+            if as_of is not None and datetime.strptime(date, "%Y-%m-%d").date() < as_of:
+                continue
+            entries.append(
+                {
+                    "date": date,
+                    "tenant": space.get("tenant"),
+                    "unit": space.get("unit"),
+                    "unitId": space.get("unitId"),
+                    "leaseType": space.get("currentAmendmentType"),
+                }
+            )
+    return sorted(entries, key=lambda e: (e["date"], str(e["unit"]), e["unitId"]))
+
+
 def build_stacking(rows: list, overrides: dict) -> dict:
     override_buildings = overrides.get("buildings", {})
+    as_of = _as_of_date(rows)
     grouped = {}
 
     for row in rows:
@@ -391,6 +450,7 @@ def build_stacking(rows: list, overrides: dict) -> dict:
                 "buildingId": building_id,
                 "propertyId": building_override.get("propertyId"),
                 "floors": floors,
+                EXPIRIES_FIELD: _upcoming_expiries(floors, as_of),
             }
         )
 
